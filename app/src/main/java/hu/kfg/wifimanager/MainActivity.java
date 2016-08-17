@@ -25,7 +25,7 @@ import android.net.wifi.*;
 public class MainActivity extends PreferenceActivity {
 	
 	private String decrypted_password = "";
-	boolean inRange = false;
+	static boolean inRange = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,7 +218,8 @@ public class MainActivity extends PreferenceActivity {
 			});
 			
     }
-	
+
+	//WIP
 	static boolean connectTokfg(Context context) {
 		WifiManager wifiManager = (WifiManager)context.getSystemService(WIFI_SERVICE);              
 		int netId = -1;
@@ -237,6 +238,7 @@ public class MainActivity extends PreferenceActivity {
 				
 			}
 		//Network not found, add
+		return true;
 		
 	}
 	
