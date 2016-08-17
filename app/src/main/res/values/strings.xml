@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KFGwifi</string>
+	<string name="initial_info">If you have found any bugs or strange behaviour, please report it immediately! Please also do this if you have any idea what to improve!\nThank you :-)</string>
+    
+</resources>

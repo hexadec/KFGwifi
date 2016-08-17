@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Login data">
+        <CheckBoxPreference android:title="Enable autologin" android:key="autologin" /><EditTextPreference android:key="username" android:title="Username" android:singleLine="true"/>
+    <EditTextPreference android:key="password" android:title="Password" android:inputType="textPassword" android:singleLine="true"/>
+		<CheckBoxPreference android:title="Extra security" android:summary="Disable for better compatibility" android:key="security" android:defaultValue="true" />
+    
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Timeout options">
+        <CheckBoxPreference android:title="Basic/Normal mode" android:key="timeout"/>
+		<CheckBoxPreference android:title="Special/Alternative mode" android:key="stamina"/>
+    </PreferenceCategory>
+	<PreferenceCategory android:title="Manual">
+        <Preference android:title="Login now" android:key="manual_login"/>
+		<Preference android:title="Open login page" android:key="open_login_page"/>
+		<Preference android:title="Connect to kfg" android:summary="Connect to kfg wifi" android:key="connect"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Info">
+        <Preference android:title="About" android:key="about"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>  
+	<array name="macAddresses">  
+		<item>00:17:59:7B:F0:A0</item>  
+		<item>00:1B:FC:9D:2F:2B</item>  
+		<item>00:1D:60:54:20:B5</item>  
+		<item>00:1B:FC:B1:8A:35</item>  
+		<item>00:17:59:68:A4:F0</item>
+		<item>00:17:59:68:A3:80</item>
+		<item>00:1B:FC:D4:6C:EA</item>
+		<item>00:1B:FC:81:6D:92</item> 
+		<item>74:EA:3A:C2:7C:3A</item> 
+		<item>74:EA:3A:C2:7B:EC</item>
+		<item>74:EA:3A:C2:7B:2C</item>
+		<item>74:EA:3A:C2:7B:D2</item>
+	</array>
+</resources>
