@@ -14,3 +14,5 @@ and report any bugs to me! :) Thanks
 Since each Android version handles wifi connectivity events (such as WIFI_STATE_CHANGED...) differently, it is a very hard work to 
 make it work on all Android versions. Some versions send the "connected signal" before the phone is connected to the network!
 A lot of different workarounds have to be made and some might not be compatible with the others, so that is why it is buggy sometimes.
+
+Some changes have to be made before a new release, it is under construction right now
