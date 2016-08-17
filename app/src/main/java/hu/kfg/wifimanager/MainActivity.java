@@ -21,11 +21,14 @@ import android.view.Gravity;
 import android.net.*;
 import android.net.wifi.*;
 
+import java.util.List;
+
 
 public class MainActivity extends PreferenceActivity {
 	
 	private String decrypted_password = "";
 	static boolean inRange = false;
+	WifiManager mWifiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,11 @@ public class MainActivity extends PreferenceActivity {
 		final Preference ol = (Preference) findPreference("open_login_page");
 		final Preference se = (Preference) findPreference("security");
 		final Preference co = (Preference) findPreference("connect");
+
+		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		registerReceiver(mWifiScanReceiver,
+				new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+		mWifiManager.startScan();
 	
     	final SharedPreferences settings = getSharedPreferences("hu.kfg.wifimanager_preferences", MODE_PRIVATE);
         
@@ -220,6 +228,7 @@ public class MainActivity extends PreferenceActivity {
     }
 
 	//WIP
+	//Todo do in background
 	static boolean connectTokfg(Context context) {
 		WifiManager wifiManager = (WifiManager)context.getSystemService(WIFI_SERVICE);              
 		int netId = -1;
@@ -229,18 +238,30 @@ public class MainActivity extends PreferenceActivity {
 			{
 				netId = tmp.networkId;
 				if (inRange) {
-					wifiManager.enableNetwork(netId, true);
-					return true;
+					return wifiManager.enableNetwork(netId, true);
 				} else {
 					//TODO kfg not in range
 					return false;
 				}
 				
 			}
-		//Network not found, add
-		return true;
+		//Network not found, todo add
+		return false;
 		
 	}
+
+	private final BroadcastReceiver mWifiScanReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context c, Intent intent) {
+			if (intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
+				List<ScanResult> mScanResults = mWifiManager.getScanResults();
+				for (ScanResult res:mScanResults) {
+					Log.d("test",res.toString());
+					if (res.toString().equals("\"kfg\"")) { inRange = true;break;}
+				}
+			}
+		}
+	};
 	
 	
 }
