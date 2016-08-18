@@ -30,6 +30,7 @@
         <CheckBoxPreference
             android:key="stamina"
             android:title="Special/Alternative mode"
+            android:defaultValue="true"
             android:summary="Automatic re-login when you unlock the screen (recommended)"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="Manual">

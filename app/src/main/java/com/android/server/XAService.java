@@ -112,20 +112,31 @@ public void sendBroadcasta(Context context){
 	private void sendBroadcast(Intent intent) {
 		synchronized(this) {
 			             if (mSystemReady) {
-							 try {
+							 if (Build.VERSION.SDK_INT < 23) {
+								 try {
 
-								 mContext.sendBroadcastAsUser(intent,android.os.Process.myUserHandle());
-								 
-							} catch (Exception e){
-								Log.e("KFGwifiService","Error sending broadcast");
-								e.printStackTrace();
-							}
-				             } else {
-				                 if (mDeferredBroadcasts == null) {
-					                     mDeferredBroadcasts = new ArrayList<Intent>();
-					                 }
-				                 mDeferredBroadcasts.add(intent);
-				             }
+									 mContext.sendBroadcastAsUser(intent, android.os.Process.myUserHandle());
+
+								 } catch (Exception e) {
+									 Log.e("KFGwifiService", "Error sending broadcast");
+									 e.printStackTrace();
+								 }
+							 } else {
+								 if (mDeferredBroadcasts == null) {
+									 mDeferredBroadcasts = new ArrayList<Intent>();
+								 }
+								 mDeferredBroadcasts.add(intent);
+							 }
+						 } else {
+							 try {
+								 final int VALID_NETWORK = 1;
+								 XposedHelpers.callMethod(Class.forName("android.net.NetworkAgent"), "networkStatus", VALID_NETWORK);
+							 } catch (Exception e) {
+								 e.printStackTrace();
+								 XposedBridge.log("Cannot call networkStatus method...");
+							 }
+
+						 }
 			         }
 		 }
 	 
