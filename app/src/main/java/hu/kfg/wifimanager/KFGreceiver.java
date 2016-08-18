@@ -39,13 +39,11 @@ import org.apache.http.params.*;
 
 
 public class KFGreceiver extends BroadcastReceiver {
-	boolean isFirstTry = true;
 	int runTimes = 0;
 	public static boolean firstConnect = true;
 	public static boolean firstDHCP = true;
 	public static short numberOfSessions = 0;
 	public static int numOfTries = 0;
-	private Context con;
 	private final Handler showSuccessToast = new Handler() {
 		public void handleMessage(Message msg) {
 		}
@@ -78,7 +76,6 @@ public class KFGreceiver extends BroadcastReceiver {
 				Log.d(TAG,user?"Screen unlock event":"WiFi connected!");
 				}
 			}
-			con = context;
 		   final boolean security = pref.getBoolean("security", true);
 			new Thread(new Runnable() {
 
@@ -229,11 +226,13 @@ public boolean connect(final String password,final String username,final Context
 	
 	long time = pref.getLong("time",System.currentTimeMillis()-300000);
 	if (!(Math.abs(System.currentTimeMillis()-time)>200000)&&(!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))){ 
+		//No need to log in again
 		Log.d(TAG,"Last login was within 200s");
 		new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
 		return false;
 	}
 	if ((!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))&&is204PageAvailable(3000)){
+		//No need to log in again
 		Log.d(TAG,"Google 204 checkpage available");
 		new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
 		return false;
@@ -253,7 +252,7 @@ public boolean connect(final String password,final String username,final Context
     HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
 	HttpConnectionParams.setSoTimeout(httpParams, 5000);
 	
-    HttpResponse response = null;
+    HttpResponse response;
     HttpClient client = new DefaultHttpClient(httpParams);
 	HttpContext hcon = new BasicHttpContext();
     /*HttpUriRequest request = new HttpGet(kfgserver);
@@ -287,7 +286,6 @@ public boolean connect(final String password,final String username,final Context
 		}
 		
 	}
-    //Log.d(TAG, "Login form get: " + response.getStatusLine());
     
 */
     HttpPost post;
@@ -335,9 +333,6 @@ public boolean connect(final String password,final String username,final Context
 			}
 			Intent broadcastintent = new Intent("hu.kfg.wifimanager.LOGGED_IN");
 			context.sendBroadcast(broadcastintent);
-			/*if (Build.VERSION.SDK_INT >= 23) {
-				cm.EXTRA_CAPTIVE_PORTAL
-			}*/
 			NotificationManager notificationManager = 
 				(NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 			notificationManager.cancelAll();
@@ -372,10 +367,7 @@ public static boolean is204PageAvailable(int timeout) {
 		Thread t = new Thread(dnsRes);
 		t.start();
 		t.join(timeout);
-		if (!(dnsRes.get()==null)) {
-			return dnsRes.get().getStatusLine().getStatusCode()==204?true:false;
-		}
-		return false;
+		return !(dnsRes.get()==null) && dnsRes.get().getStatusLine().getStatusCode()==204;
 	}
 	catch(Exception e)
 	{ 

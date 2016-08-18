@@ -8,6 +8,8 @@ android {
         applicationId "hu.kfg.wifimanager"
         minSdkVersion 11
         targetSdkVersion 21
+        versionCode 33
+        versionName "0.33-build3"
     }
 
     buildTypes {
