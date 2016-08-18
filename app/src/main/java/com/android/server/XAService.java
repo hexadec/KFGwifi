@@ -94,20 +94,6 @@ public void sendBroadcast() throws RemoteException
 
 public void sendBroadcasta(Context context){
 	mContext = context;
-	//NetworkInfo info =  ((ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-	         //Intent intent = new Intent(ConnectivityManager.CONNECTIVITY_ACTION);
-	         //intent.putExtra(ConnectivityManager.EXTRA_NETWORK_INFO, info);
-			 //intent.setPackage("com.facebook.orca");
-	         /*if (info.isFailover()) {
-		             intent.putExtra(ConnectivityManager.EXTRA_IS_FAILOVER, true);
-		         }
-	         if (info.getReason() != null) {
-		             intent.putExtra(ConnectivityManager.EXTRA_REASON, info.getReason());
-		         }
-	         if (info.getExtraInfo() != null) {
-		             intent.putExtra(ConnectivityManager.EXTRA_EXTRA_INFO,
-										                     info.getExtraInfo());
-		         }*/
 	WifiManager wifiManager = (WifiManager)mContext.getSystemService(mContext.WIFI_SERVICE);              
 	int mNetId = -1;         
 	for (WifiConfiguration tmp : wifiManager.getConfiguredNetworks()) {

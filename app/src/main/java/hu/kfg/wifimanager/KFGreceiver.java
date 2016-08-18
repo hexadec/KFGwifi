@@ -425,19 +425,22 @@ public static void notifyIfFailed(int state,Context context){
         .setSmallIcon(R.drawable.ic_launcher)
         //.setContentIntent(pIntent)
         .setAutoCancel(true)
-      .addAction(android.R.drawable.ic_menu_edit,"Change password", pIntent)
 	  .setVibrate(new long[]{0,80,100,80})
-	  .setOnlyAlertOnce(true)
-      .addAction(android.R.drawable.ic_menu_more, "Login manually", epIntent).build();
+	  .setOnlyAlertOnce(true);
+
 	   
 	if (Build.VERSION.SDK_INT>=21){
 		n.setVisibility(Notification.VISIBILITY_PUBLIC);
 	}
 	NotificationManager notificationManager = 
 		(NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
-	if (state!=4||Build.VERSION.SDK_INT<16) {
-	notificationManager.notify(0, n.build()); 
-	} else {
+	if (Build.VERSION.SDK_INT<16) {
+		notificationManager.notify(0, n.getNotification());
+	} else if (Build.VERSION.SDK_INT>=16&&state!=4) {
+		n.addAction(android.R.drawable.ic_menu_edit, "Change password", pIntent);
+		n.addAction(android.R.drawable.ic_menu_more, "Login manually", epIntent);
+		notificationManager.notify(0, n.build());
+	} else if (state==4&&Build.VERSION.SDK_INT>=16){
 		Notification notification = new Notification.BigTextStyle(n)
             .bigText("The login was probably successful, but something unexpected happened").build();
 		notificationManager.notify(0,notification); 
