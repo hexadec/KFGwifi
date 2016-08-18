@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hu.kfg.wifimanager"
     android:versionCode="33"
-    android:versionName="0.33-build2" >
+    android:versionName="0.33-build3" >
 
     <uses-sdk
         android:minSdkVersion="11"
