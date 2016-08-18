@@ -11,7 +11,7 @@ import android.net.wifi.*;
 import android.content.pm.*;
 //import de.robv.android.xposed.IXposedMod
 
-/**Use Xposed method to inform the OS that the network is ready to be used, propably only works on Android 5.X*/
+/**Use Xposed method to inform the OS that the network is ready to be used, probably only works on Android 5.X*/
 public class XAService extends android.os.IXAService.Stub {
 
 private Context mContext;

@@ -28,7 +28,7 @@ public class MainActivity extends PreferenceActivity {
 	
 	private String decrypted_password = "";
 	static boolean inRange = false;
-	WifiManager mWifiManager;
+	private static WifiManager mWifiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -237,7 +237,7 @@ public class MainActivity extends PreferenceActivity {
 			if (tmp.SSID.equals( "\""+"kfg"+"\"")) 
 			{
 				netId = tmp.networkId;
-				if (inRange) {
+				if (inRange||checkScanResults()) {
 					return wifiManager.enableNetwork(netId, true);
 				} else {
 					//TODO kfg not in range
@@ -254,14 +254,19 @@ public class MainActivity extends PreferenceActivity {
 		@Override
 		public void onReceive(Context c, Intent intent) {
 			if (intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
-				List<ScanResult> mScanResults = mWifiManager.getScanResults();
-				for (ScanResult res:mScanResults) {
-					Log.d("test",res.toString());
-					if (res.toString().equals("\"kfg\"")) { inRange = true;break;}
-				}
+				checkScanResults();
 			}
 		}
 	};
+
+	private static boolean checkScanResults() {
+		List<ScanResult> mScanResults = mWifiManager.getScanResults();
+		for (ScanResult res:mScanResults) {
+			Log.d("test",res.toString());
+			if (res.toString().equals("\"kfg\"")) { return inRange = true;}
+		}
+		return false;
+	}
 	
 	
 }
