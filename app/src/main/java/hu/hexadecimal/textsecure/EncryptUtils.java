@@ -1,12 +1,9 @@
 package hu.hexadecimal.textsecure;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.security.MessageDigest;
 
 import android.util.Base64;
-import android.util.Log;
 
 /**
  * This is a basic tool to encrypt {@link String} without having to use too complicated API-s <br/>
@@ -14,7 +11,7 @@ import android.util.Log;
  * The methods aren't static now, but you can use <i><b>new EncryptUtils().</b></i> if you don't want to use the non-static functions. (Changing the block size and the encoding)
  * <br><br><b>Threedog version:</b> <i>2</i>
  * @author Cseh András
- * @version 1.1-ULTRALIGHT
+ * @version 1.1-ULTRALIGHT.3
  *
  *
  */
@@ -57,18 +54,6 @@ public class EncryptUtils {
         }
         return s;
     }
-
-    /*public String SHA256(String text) throws Exception {
-        if (text.equals(null)) return null;
-        MessageDigest md = MessageDigest.getInstance("SHA-256");
-        md.update(text.getBytes(ENCODING));
-        StringBuffer sb = new StringBuffer();
-        byte[] byteData = md.digest();
-        for (int i = 0; i < byteData.length; i++) {
-            sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
-        }
-        return sb.toString();
-    }*/
 	
     public  String decryptSTEP11(String message, String key){
         try {
@@ -317,14 +302,8 @@ public class EncryptUtils {
         int kl = keyb.length;
         for(int p=0; p<nParts; p++) {
 
-            //partStr = data.substring(p*BSBYTE, p*BSBYTE+BSBYTE);
             for(int b=0; b<BSBYTE; b++)
                 partByte[b] = datab[p*BSBYTE+b];
-			/*if (!decrypt) {
-				partByte = stringToByteArray(partStr);
-			} else {
-				partByte = stringToByteArray(partStr);
-            }*/
             int pkl = p+kl;
             if (!decrypt){
                 for(int i=0;i<BSBYTE;i++){
@@ -348,16 +327,12 @@ public class EncryptUtils {
         }
         else{
             String str = bytesToStringUTFNIO(res);
-            /*while (str.endsWith(" ")) {
-				str = str.substring(0, str.length()-1);
-			}*/
             int i = 1;
             try {
                 while (!threedogBlockFill(str.substring(str.length() - BSBYTE, str.length() - i),BSBYTE).startsWith(str.substring(str.length() - i)))
                     i++;
                 str = str.substring(0,str.length() - i);
             } catch (Exception e) {}
-            //str = base64decode(str);
             return str;
         }
     }
@@ -416,11 +391,7 @@ public class EncryptUtils {
         if (data.equals(null)||key.equals(null)) return null;
         int BSBYTED = (int) (BSBYTE*2.5);
         if (!decrypt) {
-            //data = base64encode(data);
             if (!(data.length()%(BSBYTED)==0)){
-			/*while(!(data.length()%(BSBYTE)==0)){
-				data=data+" ";
-			}*/
                 String part = data.substring(data.length()-(data.length()%(BSBYTED)));
                 String s = " ";
                 try {

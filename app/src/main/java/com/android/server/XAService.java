@@ -3,13 +3,10 @@ import de.robv.android.xposed.*;
 import android.content.*;
 import android.os.*;
 import com.android.server.XAService;
-import android.net.*;
 import java.util.*;
 import android.util.*;
 import android.app.*;
 import android.net.wifi.*;
-import android.content.pm.*;
-//import de.robv.android.xposed.IXposedMod
 
 /**Use Xposed method to inform the OS that the network is ready to be used, probably only works on Android 5.X*/
 public class XAService extends android.os.IXAService.Stub {
@@ -151,8 +148,6 @@ public void sendBroadcasta(Context context){
 
 				 @Override
 				 public void onReceive(Context context, Intent intent) {
-					 // Do whatever you need it to do when it receives the broadcast
-					 // Example show a Toast message...
 					 Log.d("KFGwifiService","Received, uid/pid/userhandle"+android.os.Process.myUid()+"/"+android.os.Process.myPid()+"/"+android.os.Process.myUserHandle());
 						sendBroadcasta(context);
 				 }

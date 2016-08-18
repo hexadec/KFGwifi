@@ -1,16 +1,12 @@
 package hu.kfg.wifimanager;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.content.*;
 import android.util.Log;
-import android.util.Base64;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.app.*;

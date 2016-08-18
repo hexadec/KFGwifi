@@ -6,11 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
@@ -31,11 +28,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.preference.PreferenceManager;
 import android.util.Log;
-import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.util.Log;
-import android.util.Base64;
 import android.os.SystemClock;
 import android.widget.*;
 import android.net.*;
@@ -44,9 +36,6 @@ import org.apache.http.protocol.*;
 import android.os.*;
 import hu.hexadecimal.textsecure.*;
 import org.apache.http.params.*;
-import java.net.*;
-import java.util.*;
-import java.lang.reflect.*;
 
 
 public class KFGreceiver extends BroadcastReceiver {
