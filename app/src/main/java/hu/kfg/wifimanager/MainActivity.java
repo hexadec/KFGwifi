@@ -1,6 +1,7 @@
 package hu.kfg.wifimanager;
 
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.preference.CheckBoxPreference;
 import android.preference.EditTextPreference;
 import android.preference.Preference;
@@ -44,7 +45,9 @@ public class MainActivity extends PreferenceActivity {
 		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		registerReceiver(mWifiScanReceiver,
 				new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
-		mWifiManager.startScan();
+		if (mWifiManager.isWifiEnabled()) {
+			mWifiManager.startScan();
+		}
 	
     	final SharedPreferences settings = getSharedPreferences("hu.kfg.wifimanager_preferences", MODE_PRIVATE);
         
@@ -220,6 +223,33 @@ public class MainActivity extends PreferenceActivity {
 
 				}
 			});
+		co.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+			@Override
+			public boolean onPreferenceClick(Preference preference) {
+				new Thread(new Runnable() {
+					@Override
+					public void run() {
+						if (connectTokfg(MainActivity.this)) {
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									Toast.makeText(MainActivity.this,"Connected",Toast.LENGTH_SHORT).show();
+								}
+							});
+						} else {
+							runOnUiThread(new Runnable() {
+								@Override
+								public void run() {
+									Toast.makeText(MainActivity.this,"Couldn't connect!",Toast.LENGTH_SHORT).show();
+								}
+							});
+						}
+					}
+				}).start();
+
+				return true;
+			}
+		});
 			
     }
 
@@ -228,9 +258,16 @@ public class MainActivity extends PreferenceActivity {
 	static boolean connectTokfg(Context context) {
 		WifiManager wifiManager = (WifiManager)context.getSystemService(WIFI_SERVICE);              
 		int netId = -1;
-
+		wifiManager.setWifiEnabled(true);
+		SystemClock.sleep(1000);
+		for(int i = 0;i < 10; i++) {
+			SystemClock.sleep(500);
+			if (wifiManager.isWifiEnabled()) break;
+		}
+		if (!wifiManager.isWifiEnabled()) return false;
+		mWifiManager.startScan();
 		for (WifiConfiguration tmp : wifiManager.getConfiguredNetworks()) 
-			if (tmp.SSID.equals( "\""+"kfg"+"\"")) 
+			if (tmp.SSID.equals( "\""+"kfg"+"\""))
 			{
 				netId = tmp.networkId;
 				if (inRange||checkScanResults()) {
@@ -246,7 +283,7 @@ public class MainActivity extends PreferenceActivity {
 		
 	}
 
-	private final BroadcastReceiver mWifiScanReceiver = new BroadcastReceiver() {
+	private static final BroadcastReceiver mWifiScanReceiver = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context c, Intent intent) {
 			if (intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
@@ -258,10 +295,10 @@ public class MainActivity extends PreferenceActivity {
 	private static boolean checkScanResults() {
 		List<ScanResult> mScanResults = mWifiManager.getScanResults();
 		for (ScanResult res:mScanResults) {
-			Log.d("test",res.toString());
-			if (res.toString().equals("\"kfg\"")) { return inRange = true;}
+			Log.d("Available networks:",res.toString());
+			if (res.toString().contains("SSID: kfg, BSSID:")) return inRange = true;
 		}
-		return false;
+		return inRange = false;
 	}
 	
 	
