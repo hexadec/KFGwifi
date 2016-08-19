@@ -7,6 +7,7 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.content.*;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -31,6 +32,8 @@ public class MainActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.prefs);
+
+		PreferenceManager.setDefaultValues(this, R.xml.prefs, false);
         final Preference un = (Preference) findPreference("username");
     	final Preference pw = (Preference) findPreference("password");
     	final Preference al = (Preference) findPreference("autologin");

@@ -26,6 +26,7 @@
         <CheckBoxPreference
             android:key="timeout"
             android:title="Basic/Normal mode"
+            android:defaultValue="false"
             android:summary="Keep the connection alive so you don\'t have to re-login"/>
         <CheckBoxPreference
             android:key="stamina"
