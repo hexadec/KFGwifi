@@ -90,3 +90,5 @@ $RECYCLE.BIN/
 *.lnk
 
 import-summary.txt
+.idea/workspace.xml
+.idea/vcs.xml
