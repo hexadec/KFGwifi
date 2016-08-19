@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<resources>  
+<resources>
+	<!--List of APs that provide internet access as "kfg"
+		Only these are trusted-->
 	<array name="macAddresses">  
 		<item>00:17:59:7B:F0:A0</item>  
 		<item>00:1B:FC:9D:2F:2B</item>  

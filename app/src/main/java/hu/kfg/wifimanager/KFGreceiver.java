@@ -121,7 +121,7 @@ public class KFGreceiver extends BroadcastReceiver {
 											if (macAddress1.equals(wifiInfo.getBSSID())||macAddress1.toLowerCase().equals(wifiInfo.getBSSID())) match = true;
 										}
 										if (!match){ 
-											Log.d(TAG,"Different wifi with the name \"kfg\"  MAC!");
+											Log.d(TAG,"Different wifi with the name \"kfg\"  MAC! -- "+wifiInfo.getBSSID());
 											showSuccessToast.postAtFrontOfQueue(new Runnable() {
 													@Override
 													public void run () {
@@ -135,6 +135,7 @@ public class KFGreceiver extends BroadcastReceiver {
 										final String username = pref.getString("username", "");
 										final String password2 = pref.getString("b64", "");
 										if (username.equals("")||password2.equals("")){
+											Toast.makeText(context,"KFGwifi: Please enter your username & password in the menu",Toast.LENGTH_SHORT).show();
 											return;
 										}
 										final boolean timeout = pref.getBoolean("timeout", false);
@@ -224,8 +225,8 @@ public boolean connect(final String password,final String username,final Context
 	final SharedPreferences pref = PreferenceManager
 		.getDefaultSharedPreferences(context);
 	
-	long time = pref.getLong("time",System.currentTimeMillis()-300000);
-	if (!(Math.abs(System.currentTimeMillis()-time)>200000)&&(!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))){ 
+	long time = pref.getLong("time",System.currentTimeMillis()-600000);
+	if ((System.currentTimeMillis()-time<200000)&&(!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))){
 		//No need to log in again
 		Log.d(TAG,"Last login was within 200s");
 		new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
@@ -255,39 +256,6 @@ public boolean connect(final String password,final String username,final Context
     HttpResponse response;
     HttpClient client = new DefaultHttpClient(httpParams);
 	HttpContext hcon = new BasicHttpContext();
-    /*HttpUriRequest request = new HttpGet(kfgserver);
-	
-    try {
-        response = client.execute(request);
-    } catch (IOException e3) {
-		Log.e(TAG,"Cannot reach captive portal! (REQ)");
-        e3.printStackTrace();
-		SystemClock.sleep(1000);
-		WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-		WifiInfo wifiInfo = manager.getConnectionInfo();
-		if (wifiInfo!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
-			notifyIfFailed(2, context);
-		}
-		return false;
-    }
-	try {
-    response.getEntity();
-	} catch (Exception e){
-		Log.d(TAG, "Entity error!");
-		if (isFirstTry){
-			SystemClock.sleep(2500L);
-			isFirstTry = false;
-			Log.d(TAG,"Retry now...");
-			return connect(password,username,context,intent);
-			
-		} else {
-			notifyIfFailed(2,context);
-			return false;
-		}
-		
-	}
-    
-*/
     HttpPost post;
     post = new HttpPost(kfgserver);
 	List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -302,7 +270,6 @@ public boolean connect(final String password,final String username,final Context
     }
     try {
 		response = client.execute(post,hcon);
-		
 	} catch (Exception e1) {
 		
 		notifyIfFailed(1,context);
@@ -318,6 +285,7 @@ public boolean connect(final String password,final String username,final Context
 		HttpUriRequest req = (HttpUriRequest) hcon.getAttribute( ExecutionContext.HTTP_REQUEST);
 		//Let's check, whether the username/password was correct
 		if (req.getURI().toASCIIString().equals("/")){
+			//Wasn't, notifying user
 			notifyIfFailed(3,context);
 			return false;
 		} else {
@@ -342,6 +310,7 @@ public boolean connect(final String password,final String username,final Context
 		return true;
 	} else if (response.getStatusLine().getStatusCode()%200>=100) {
 		//Did NOT receive 2xx response, something unexpected happened
+		Log.d(TAG, "Login form get: " + response.getStatusLine());
 		notifyIfFailed(1,context);
 		return false;
 	} else {

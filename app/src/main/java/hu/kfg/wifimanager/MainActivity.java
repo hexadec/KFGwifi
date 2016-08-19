@@ -172,7 +172,7 @@ public class MainActivity extends PreferenceActivity {
 					}
 					settings.edit().putLong("manual_login_time",System.currentTimeMillis()).commit();
 					WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-					if (settings.getString("b64","").equals("")){
+					if (settings.getString("b64","").equals("")||settings.getString("username","").equals("")){
 						Toast.makeText(getApplicationContext(),"Please enter your username and password",Toast.LENGTH_SHORT).show();
 						return true;
 					}
@@ -252,6 +252,12 @@ public class MainActivity extends PreferenceActivity {
 		});
 			
     }
+
+	@Override
+	public void onDestroy() {
+		unregisterReceiver(mWifiScanReceiver);
+		super.onDestroy();
+	}
 
 	//WIP
 	//Todo do in background
