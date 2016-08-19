@@ -112,7 +112,6 @@ public void sendBroadcasta(Context context){
 	private void sendBroadcast(Intent intent) {
 		synchronized(this) {
 			             if (mSystemReady) {
-							 if (Build.VERSION.SDK_INT < 23) {
 								 try {
 
 									 mContext.sendBroadcastAsUser(intent, android.os.Process.myUserHandle());
@@ -127,19 +126,9 @@ public void sendBroadcasta(Context context){
 								 }
 								 mDeferredBroadcasts.add(intent);
 							 }
-						 } else {
-							 try {
-								 final int VALID_NETWORK = 1;
-								 XposedHelpers.callMethod(Class.forName("android.net.NetworkAgent"), "networkStatus", VALID_NETWORK);
-							 } catch (Exception e) {
-								 e.printStackTrace();
-								 XposedBridge.log("Cannot call networkStatus method...");
-							 }
-
-						 }
 			         }
 		 }
-	 
+
 	     void systemReady() {
 			 try {
 				 mContext = AndroidAppHelper.currentApplication().createPackageContext("hu.kfg.wifimanager", Context.CONTEXT_IGNORE_SECURITY);
