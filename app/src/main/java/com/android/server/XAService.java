@@ -8,7 +8,7 @@ import android.util.*;
 import android.app.*;
 import android.net.wifi.*;
 
-/**Use Xposed method to inform the OS that the network is ready to be used, probably only works on Android 5.X*/
+/**Use Xposed method to inform the OS that the network is ready to be used, only works on Android 5.X*/
 public class XAService extends android.os.IXAService.Stub {
 
 private Context mContext;
