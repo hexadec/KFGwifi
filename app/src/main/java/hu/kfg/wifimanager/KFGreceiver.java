@@ -125,7 +125,7 @@ public class KFGreceiver extends BroadcastReceiver {
 											showSuccessToast.postAtFrontOfQueue(new Runnable() {
 													@Override
 													public void run () {
-														Toast.makeText(context,"A wifi is connected with the name \"kfg\", but it is not the real one!\nDo not log in here!",Toast.LENGTH_SHORT).show();
+														Toast.makeText(context,context.getString(R.string.not_real_kfg),Toast.LENGTH_SHORT).show();
 													}
 												});
 											return;
@@ -135,7 +135,7 @@ public class KFGreceiver extends BroadcastReceiver {
 										final String username = pref.getString("username", "");
 										final String password2 = pref.getString("b64", "");
 										if (username.equals("")||password2.equals("")){
-											Toast.makeText(context,"KFGwifi: Please enter your username & password in the menu",Toast.LENGTH_SHORT).show();
+											Toast.makeText(context,context.getString(R.string.enter_username_password),Toast.LENGTH_SHORT).show();
 											return;
 										}
 										final boolean timeout = pref.getBoolean("timeout", false);
@@ -182,7 +182,7 @@ public class KFGreceiver extends BroadcastReceiver {
 												showSuccessToast.postAtFrontOfQueue(new Runnable() {
 														@Override
 														public void run () {
-															Toast.makeText(context,"A wifi is connected with the name \"kfg\", but it is not the real one!\nDo not log in here!",Toast.LENGTH_SHORT).show();
+															Toast.makeText(context,context.getString(R.string.not_real_kfg),Toast.LENGTH_SHORT).show();
 														}
 													});
 												return;
@@ -370,8 +370,8 @@ public static void notifyIfFailed(int state,Context context){
 	PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
 	PendingIntent epIntent = PendingIntent.getActivity(context, 0, eintent, 0);
 	Notification.Builder n  = new Notification.Builder(context);
-        n.setContentTitle("KFGwifi Error")
-        .setContentText(state==1?"Login failed!":state==2?"Cannot reach login site!":state==3?"Wrong username or password":"The login was probably successful, but something unexpected happened")
+        n.setContentTitle(context.getString(R.string.kfgwifi_error))
+        .setContentText(state==1?context.getString(R.string.login_failed):state==2?context.getString(R.string.cannot_reach_login):state==3?context.getString(R.string.wrong_username_password):context.getString(R.string.login_prob_successful))
         .setSmallIcon(R.drawable.ic_launcher)
         //.setContentIntent(pIntent)
         .setAutoCancel(true)
@@ -387,12 +387,12 @@ public static void notifyIfFailed(int state,Context context){
 	if (Build.VERSION.SDK_INT<16) {
 		notificationManager.notify(0, n.getNotification());
 	} else if (Build.VERSION.SDK_INT>=16&&state!=4) {
-		n.addAction(android.R.drawable.ic_menu_edit, "Change password", pIntent);
-		n.addAction(android.R.drawable.ic_menu_more, "Login manually", epIntent);
+		n.addAction(android.R.drawable.ic_menu_edit, context.getString(R.string.change_password), pIntent);
+		n.addAction(android.R.drawable.ic_menu_more, context.getString(R.string.login_manually), epIntent);
 		notificationManager.notify(0, n.build());
 	} else if (state==4&&Build.VERSION.SDK_INT>=16){
 		Notification notification = new Notification.BigTextStyle(n)
-            .bigText("The login was probably successful, but something unexpected happened").build();
+            .bigText(context.getString(R.string.login_prob_successful)).build();
 		notificationManager.notify(0,notification); 
 	}
 }

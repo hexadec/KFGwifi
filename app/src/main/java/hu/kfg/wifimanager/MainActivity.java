@@ -65,9 +65,9 @@ public class MainActivity extends PreferenceActivity {
 		
 		if (!settings.getBoolean("startupdialog",false)){
 			AlertDialog.Builder adb =new AlertDialog.Builder(this);
-			adb.setTitle("Attention!");
+			adb.setTitle(R.string.attention);
 			adb.setMessage(R.string.initial_info);
-			adb.setPositiveButton("OK, I understood",null);
+			adb.setPositiveButton("OK",null);
 			adb.setCancelable(false);
 			adb.show();
 			prefEditorr.putBoolean("startupdialog",true);
@@ -81,9 +81,9 @@ public class MainActivity extends PreferenceActivity {
     	final CheckBoxPreference timeout = (CheckBoxPreference) to;
 		final CheckBoxPreference stamina = (CheckBoxPreference) st;
 		if (settings.getString("b64","").equals("")){
-			password.getEditText().setHint("[no password yet]");
+			password.getEditText().setHint(getString(R.string.no_pwd_yet));
 		} else {
-		password.getEditText().setHint("[not modified]");
+		password.getEditText().setHint(getString(R.string.pwd_not_modified));
 		}
 		
 		password.getEditText().setTypeface(android.graphics.Typeface.MONOSPACE);
@@ -123,7 +123,7 @@ public class MainActivity extends PreferenceActivity {
 		username.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener(){
 				public boolean onPreferenceChange(Preference p1, Object o){
 					if (o.toString().equals("")){
-						Toast.makeText(getApplicationContext(),"Enter username!",Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),R.string.enter_username,Toast.LENGTH_SHORT).show();
 						return false;
 					}
 					String pwd = settings.getString("b64","");
@@ -149,7 +149,7 @@ public class MainActivity extends PreferenceActivity {
 						return false;
 					}
 					if (settings.getString("username","").equals("")){
-						Toast.makeText(getApplicationContext(),"Enter username first!",Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),R.string.enter_username_first,Toast.LENGTH_SHORT).show();
 						return false;
 					}
 					final SharedPreferences.Editor prefEditor = settings.edit();
@@ -158,8 +158,8 @@ public class MainActivity extends PreferenceActivity {
 					String base64 = new EncryptUtils().base64encode(new EncryptUtils().cryptThreedog(o.toString(),false,username.getText()));
 					prefEditor.putString("b64",base64);
 					prefEditor.commit();
-					Toast.makeText(MainActivity.this,"Password changed!",Toast.LENGTH_SHORT).show();
-						password.getEditText().setHint("[not modified]");
+					Toast.makeText(MainActivity.this,R.string.password_changed,Toast.LENGTH_SHORT).show();
+						password.getEditText().setHint(getString(R.string.pwd_not_modified));
 					} catch (Exception e){
 						
 					}
@@ -176,20 +176,20 @@ public class MainActivity extends PreferenceActivity {
 					settings.edit().putLong("manual_login_time",System.currentTimeMillis()).commit();
 					WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 					if (settings.getString("b64","").equals("")||settings.getString("username","").equals("")){
-						Toast.makeText(getApplicationContext(),"Please enter your username and password",Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),R.string.enter_username_password2,Toast.LENGTH_SHORT).show();
 						return true;
 					}
 					if (manager.isWifiEnabled()) {
 						WifiInfo wifiInfo = manager.getConnectionInfo();
 						if (wifiInfo!=null&&wifiInfo.getSSID()!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
-							Toast.makeText(getApplicationContext(),"Attempt to login...",Toast.LENGTH_SHORT).show();
+							Toast.makeText(getApplicationContext(),R.string.attempt_to_login,Toast.LENGTH_SHORT).show();
 							Intent intent = new Intent("hu.kfg.wifimanager.MANUAL_LOGIN");
 							sendBroadcast(intent);
 						} else {
-							Toast.makeText(getApplicationContext(),"\"kfg\" is not connected",Toast.LENGTH_SHORT).show();
+							Toast.makeText(getApplicationContext(),R.string.kfg_isnot_connected,Toast.LENGTH_SHORT).show();
 						}
 					} else {			
-						Toast.makeText(getApplicationContext(),"WiFi is not enabled",Toast.LENGTH_SHORT).show();
+						Toast.makeText(getApplicationContext(),R.string.wifi_not_enabled,Toast.LENGTH_SHORT).show();
 					}
 						
 					
@@ -236,14 +236,14 @@ public class MainActivity extends PreferenceActivity {
 							runOnUiThread(new Runnable() {
 								@Override
 								public void run() {
-									Toast.makeText(MainActivity.this,"Connected",Toast.LENGTH_SHORT).show();
+									Toast.makeText(MainActivity.this,R.string.connected,Toast.LENGTH_SHORT).show();
 								}
 							});
 						} else {
 							runOnUiThread(new Runnable() {
 								@Override
 								public void run() {
-									Toast.makeText(MainActivity.this,"Couldn't connect!",Toast.LENGTH_SHORT).show();
+									Toast.makeText(MainActivity.this,R.string.couldnot_connect,Toast.LENGTH_SHORT).show();
 								}
 							});
 						}

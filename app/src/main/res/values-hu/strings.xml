@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KFGwifi</string>
+    <string name="initial_info">Ha bármi hibát találtál, kérlek szólj azonnal! Akkor is nyugodtan szólj, ha van valami ötleted\n!Köszi :-)</string>
+    <string name="enable_autologin">Auto. belépés bekapcsolása</string>
+    <string name="password">Jelszó</string>
+    <string name="username">Felhasználónév</string>
+    <string name="security_sum">Kapcsold ki ha gyakran látod a \"nem igazi kfg wifi\" üzenetet</string>
+    <string name="extra_security">Extra biztonság</string>
+    <string name="autologin_sum">Automatikus belépés minden csatlakozáskor</string>
+    <string name="login_data">Bejelentkezési adatok</string>
+    <string name="timeout_options">Időkorlát kezelése</string>
+    <string name="adv_timeout">Speciális mód</string>
+    <string name="norm_timeout">Normál mód</string>
+    <string name="norm_timeout_sum">A kapcsolat fenntartása, így nem kell újra belépni</string>
+    <string name="adv_timeout_sum">Automatikus belépés mikor feloldod a képernyőt (ajánlott)</string>
+    <string name="manual">Kézi</string>
+    <string name="connect_to_kfg">Kapcsolódás a kfg wifihez</string>
+    <string name="login_now">Belépés most</string>
+    <string name="open_login_page">Oldal megnyitása</string>
+    <string name="about">Névjegy</string>
+    <string name="info">Info</string>
+    <string name="change_password">Jelszó módosítása</string>
+    <string name="login_manually">Kézi belépés</string>
+    <string name="kfgwifi_error">KFGwifi Hiba</string>
+    <string name="login_failed">Belépési hiba!</string>
+    <string name="login_prob_successful">A belépés valszínűleg sikeres volt, de valami váratlan történt</string>
+    <string name="wrong_username_password">Rossz felhasználónév vagy jelszó!</string>
+    <string name="enter_username_password"><![CDATA[KFGwifi: Kérlek írd be a felhasználóneved és a jelszavad a menüben]]></string>
+    <string name="not_real_kfg">Kapcsolódtál egy \"kfg\" nevű wifihez, de ez nem az igazi! Itt ne lépj be!</string>
+    <string name="cannot_reach_login">Nem érhető el a belépési oldal!</string>
+    <string name="attention">Figyelem!</string>
+    <string name="no_pwd_yet">[nincs jelszó beírva]</string>
+    <string name="pwd_not_modified">[változatlan]</string>
+    <string name="connected">Kapcsolódva</string>
+    <string name="couldnot_connect">Nem sikerült kapcsolódni</string>
+    <string name="kfg_isnot_connected">"kfg" nincs csatlakoztatva</string>
+    <string name="wifi_not_enabled">A WiFi nincs bekapcsolva</string>
+    <string name="attempt_to_login">Belépés...</string>
+    <string name="enter_username_password2">Kérlek írd be a felhasználóneved és a jelszavad</string>
+    <string name="password_changed">A jelszó megváltozott!</string>
+    <string name="enter_username_first">Először írd be a felhasználóneved!</string>
+    <string name="enter_username">Írd be a felhasználóneved</string>
+
+</resources>

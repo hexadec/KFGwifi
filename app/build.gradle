@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
+    compileSdkVersion 23
     buildToolsVersion "24.0.1"
 
     defaultConfig {
@@ -9,7 +9,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 21
         versionCode 33
-        versionName "0.33-build5"
+        versionName "0.33-build6"
     }
 
     buildTypes {

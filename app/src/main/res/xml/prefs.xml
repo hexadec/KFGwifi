@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Login data">
+    <PreferenceCategory android:title="@string/login_data">
         <CheckBoxPreference
             android:key="autologin"
-            android:title="Enable autologin"
-            android:summary="Login to the wifi automatically every time you connect"/>
+            android:title="@string/enable_autologin"
+            android:summary="@string/autologin_sum"/>
         <EditTextPreference
             android:key="username"
             android:singleLine="true"
-            android:title="Username" />
+            android:title="@string/username" />
         <EditTextPreference
             android:inputType="textPassword"
             android:key="password"
             android:singleLine="true"
-            android:title="Password" />
+            android:title="@string/password" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="security"
-            android:summary="Disable if something is not working properly"
-            android:title="Extra security" />
+            android:summary="@string/security_sum"
+            android:title="@string/extra_security" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Timeout options">
+    <PreferenceCategory android:title="@string/timeout_options">
         <CheckBoxPreference
             android:key="timeout"
-            android:title="Basic/Normal mode"
+            android:title="@string/norm_timeout"
             android:defaultValue="false"
-            android:summary="Keep the connection alive so you don\'t have to re-login"/>
+            android:summary="@string/norm_timeout_sum"/>
         <CheckBoxPreference
             android:key="stamina"
-            android:title="Special/Alternative mode"
+            android:title="@string/adv_timeout"
             android:defaultValue="true"
-            android:summary="Automatic re-login when you unlock the screen (recommended)"/>
+            android:summary="@string/adv_timeout_sum"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="Manual">
+    <PreferenceCategory android:title="@string/manual">
         <Preference
             android:key="manual_login"
-            android:title="Login now" />
+            android:title="@string/login_now" />
         <Preference
             android:key="open_login_page"
-            android:title="Open login page" />
+            android:title="@string/open_login_page" />
         <Preference
             android:key="connect"
-            android:title="Connect to kfg wifi" />
+            android:title="@string/connect_to_kfg" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Info">
+    <PreferenceCategory android:title="@string/info">
         <Preference
             android:key="about"
-            android:title="About" />
+            android:title="@string/about" />
     </PreferenceCategory>
 
 </PreferenceScreen>

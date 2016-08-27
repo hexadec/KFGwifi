@@ -3,5 +3,44 @@
 
     <string name="app_name">KFGwifi</string>
 	<string name="initial_info">If you have found any bugs or strange behaviour, please report it immediately! Please also do this if you have any idea what to improve!\nThank you :-)</string>
-    
+    <string name="enable_autologin">Enable autologin</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="extra_security">Extra security</string>
+    <string name="autologin_sum">Login to the wifi automatically every time you connect</string>
+    <string name="security_sum">Disable only if you see \"not real kfg wifi\" often</string>
+    <string name="login_data">Login data</string>
+    <string name="timeout_options">Timeout options</string>
+    <string name="norm_timeout">Basic/Normal mode</string>
+    <string name="adv_timeout">Special/Alternative mode</string>
+    <string name="norm_timeout_sum">Keep the connection alive so you don\'t have to re-login</string>
+    <string name="adv_timeout_sum">Automatic re-login when you unlock the screen (recommended)</string>
+    <string name="manual">Manual</string>
+    <string name="login_now">Login now</string>
+    <string name="open_login_page">Open login page</string>
+    <string name="connect_to_kfg">Connect to kfg wifi</string>
+    <string name="info">Info</string>
+    <string name="about">About</string>
+    <string name="change_password">Change password</string>
+    <string name="login_manually">Login manually</string>
+    <string name="kfgwifi_error">KFGwifi Error</string>
+    <string name="login_failed">Login failed!</string>
+    <string name="cannot_reach_login">Cannot reach login site!</string>
+    <string name="wrong_username_password">Wrong username or password!</string>
+    <string name="login_prob_successful">The login was probably successful, but something unexpected happened</string>
+    <string name="enter_username_password"><![CDATA[KFGwifi: Please enter your username & password in the menu]]></string>
+    <string name="not_real_kfg">A wifi is connected with the name \"kfg\", but it is not the real one!\nDo not log in here!</string>
+    <string name="attention">Attention!</string>
+    <string name="no_pwd_yet">[no password yet]</string>
+    <string name="pwd_not_modified">[not modified]</string>
+    <string name="connected">Connected</string>
+    <string name="couldnot_connect">Couldn\'t connect</string>
+    <string name="wifi_not_enabled">WiFi is not enabled</string>
+    <string name="kfg_isnot_connected">\"kfg\" is not connected</string>
+    <string name="attempt_to_login">Attempt to login...</string>
+    <string name="enter_username_password2">Please enter your username and password</string>
+    <string name="enter_username_first">Enter username first!</string>
+    <string name="password_changed">Password changed!</string>
+    <string name="enter_username">Enter username</string>
+
 </resources>
