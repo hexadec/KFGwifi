@@ -44,6 +44,7 @@ public class KFGreceiver extends BroadcastReceiver {
 	public static boolean firstDHCP = true;
 	public static short numberOfSessions = 0;
 	public static int numOfTries = 0;
+	private boolean security_warning = false;
 	private final Handler showSuccessToast = new Handler() {
 		public void handleMessage(Message msg) {
 		}
@@ -112,7 +113,7 @@ public class KFGreceiver extends BroadcastReceiver {
 									}
 									}
 								
-									if (ssid.equals("\"kfg\"")&&((!security||((intToIp(dhcp.gateway).startsWith("172."))&&(intToIp(dhcp.netmask).equals("255.255.0.0")))))&&(firstConnect||intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")||intent.getAction().equals(Intent.ACTION_USER_PRESENT))) {
+									if (ssid.equals("\"kfg\"")&&((!security||isRealKfgWifi(dhcp)))&&(firstConnect||intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")||intent.getAction().equals(Intent.ACTION_USER_PRESENT))) {
 										firstConnect = false;
 										if (security) {
 										String[] macAddress = context.getResources().getStringArray(R.array.macAddresses);
@@ -177,18 +178,18 @@ public class KFGreceiver extends BroadcastReceiver {
 											Log.d(TAG,"Different Wi-Fi name");
 						
 										} else {
-											if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")){
-												Log.d(TAG,"Different wifi with the name \"kfg\"!");
+											if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")) {
+												Log.d(TAG, "Different wifi with the name \"kfg\"!");
 												showSuccessToast.postAtFrontOfQueue(new Runnable() {
-														@Override
-														public void run () {
-															Toast.makeText(context,context.getString(R.string.not_real_kfg),Toast.LENGTH_SHORT).show();
-														}
-													});
+													@Override
+													public void run() {
+														Toast.makeText(context, context.getString(R.string.not_real_kfg), Toast.LENGTH_SHORT).show();
+													}
+												});
 												return;
 											}
 											Log.d(TAG,"Received more than once...");
-									
+
 								}
 	         				} 
 						} else {
@@ -322,6 +323,15 @@ public boolean connect(final String password,final String username,final Context
 		
 	}
 }
+	public boolean isRealKfgWifi(DhcpInfo dhcp) {
+		if (((intToIp(dhcp.gateway).startsWith("172."))&&(intToIp(dhcp.netmask).equals("255.255.0.0")))) {
+			return true;
+		} else {
+			security_warning = true;
+			return false;
+		}
+	}
+
 public static int randInt(int min, int max) {
     Random rand = new Random();
     int randomNum = rand.nextInt((max - min) + 1) + min;
@@ -383,7 +393,7 @@ public static void notifyIfFailed(int state,Context context){
 		n.setVisibility(Notification.VISIBILITY_PUBLIC);
 	}
 	NotificationManager notificationManager = 
-		(NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+		(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	if (Build.VERSION.SDK_INT<16) {
 		notificationManager.notify(0, n.getNotification());
 	} else if (Build.VERSION.SDK_INT>=16&&state!=4) {

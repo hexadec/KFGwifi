@@ -9,8 +9,9 @@ android {
         minSdkVersion 11
         targetSdkVersion 21
         versionCode 33
-        versionName "0.33-build6"
+        versionName "0.33-build7"
     }
+        useLibrary 'org.apache.http.legacy'
 
     buildTypes {
         release {
@@ -29,9 +30,9 @@ android {
 }
 
 dependencies {
-    compile files('libs/commons-logging-1.2.jar')
-    compile files('libs/httpclient-4.5.1.jar')
-    compile files('libs/httpcore-4.4.3.jar')
-    //provided files('libs/XposedBridgeApi.jar')
+//    compile files('libs/commons-logging-1.2.jar')
+//    compile files('libs/httpclient-4.5.1.jar')
+//    compile files('libs/httpcore-4.4.3.jar')
+//    provided files('libs/XposedBridgeApi.jar')
     provided 'de.robv.android.xposed:api:82'
 }

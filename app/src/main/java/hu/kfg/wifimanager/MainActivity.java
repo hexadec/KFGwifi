@@ -34,16 +34,16 @@ public class MainActivity extends PreferenceActivity {
         addPreferencesFromResource(R.xml.prefs);
 
 		PreferenceManager.setDefaultValues(this, R.xml.prefs, false);
-        final Preference un = (Preference) findPreference("username");
-    	final Preference pw = (Preference) findPreference("password");
-    	final Preference al = (Preference) findPreference("autologin");
-    	final Preference to = (Preference) findPreference("timeout");
-		final Preference st = (Preference) findPreference("stamina");
-		final Preference ml = (Preference) findPreference("manual_login");
-		final Preference ab = (Preference) findPreference("about");
-		final Preference ol = (Preference) findPreference("open_login_page");
-		final Preference se = (Preference) findPreference("security");
-		final Preference co = (Preference) findPreference("connect");
+        final Preference un = findPreference("username");
+    	final Preference pw = findPreference("password");
+    	final Preference al = findPreference("autologin");
+    	final Preference to = findPreference("timeout");
+		final Preference st = findPreference("stamina");
+		final Preference ml = findPreference("manual_login");
+		final Preference ab = findPreference("about");
+		final Preference ol = findPreference("open_login_page");
+		final Preference se = findPreference("security");
+		final Preference co = findPreference("connect");
 
 		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
 		registerReceiver(mWifiScanReceiver,
@@ -305,7 +305,7 @@ public class MainActivity extends PreferenceActivity {
 		List<ScanResult> mScanResults = mWifiManager.getScanResults();
 		for (ScanResult res:mScanResults) {
 			Log.d("Available networks:",res.toString());
-			if (res.toString().contains("SSID: kfg, BSSID:")) return inRange = true;
+			if (res.SSID.equals("kfg")) return inRange = true;
 		}
 		return inRange = false;
 	}
