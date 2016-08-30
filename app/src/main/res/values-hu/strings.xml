@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">KFGwifi</string>
-    <string name="initial_info">Ha bármi hibát találtál, kérlek szólj azonnal! Akkor is nyugodtan szólj, ha van valami ötleted\n!Köszi :-)</string>
+    <string name="initial_info">Ha bármi hibát találtál, kérlek szólj azonnal! Akkor is nyugodtan szólj, ha van valami ötleted!\nKöszi :-)</string>
     <string name="enable_autologin">Auto. belépés bekapcsolása</string>
     <string name="password">Jelszó</string>
     <string name="username">Felhasználónév</string>
