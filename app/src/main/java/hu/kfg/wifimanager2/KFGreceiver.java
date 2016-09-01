@@ -1,4 +1,4 @@
-package hu.kfg.wifimanager;
+package hu.kfg.wifimanager2;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

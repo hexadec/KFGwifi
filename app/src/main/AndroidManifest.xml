@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hu.kfg.wifimanager" >
+    package="hu.kfg.wifimanager2" >
     <!--android:versionCode="33"
     android:versionName="0.33" >-->
 
@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="hu.kfg.wifimanager2.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="hu.kfg.wifimanager.KFGreceiver"
+        <receiver android:name="hu.kfg.wifimanager2.KFGreceiver"
 			android:exported="true">
             <intent-filter android:priority="100" >
 				<action android:name="android.net.wifi.STATE_CHANGE"/>
@@ -39,7 +39,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="hu.kfg.wifimanager.TimeoutKiller"
+            android:name="hu.kfg.wifimanager2.TimeoutKiller"
             android:exported="false" >
         </receiver>
 		<meta-data android:value="true" android:name="xposedmodule" android:minSdkVersion="21"/>

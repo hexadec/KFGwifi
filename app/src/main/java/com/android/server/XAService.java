@@ -131,7 +131,7 @@ public void sendBroadcasta(Context context){
 
 	     void systemReady() {
 			 try {
-				 mContext = AndroidAppHelper.currentApplication().createPackageContext("hu.kfg.wifimanager", Context.CONTEXT_IGNORE_SECURITY);
+				 mContext = AndroidAppHelper.currentApplication().createPackageContext("hu.kfg.wifimanager2", Context.CONTEXT_IGNORE_SECURITY);
 			 } catch (Exception e){
 				 XposedBridge.log("Context error");
 				 XposedBridge.log(e.getMessage());

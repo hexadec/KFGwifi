@@ -5,10 +5,10 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "hu.kfg.wifimanager"
+        applicationId "hu.kfg.wifimanager2"
         minSdkVersion 11
         targetSdkVersion 21
-        versionCode 33
+        versionCode 34
         versionName "0.33.8"
     }
         useLibrary 'org.apache.http.legacy'
@@ -19,13 +19,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
-        packagingOptions {
-            exclude 'META-INF/DEPENDENCIES'
-            exclude 'META-INF/NOTICE'
-            exclude 'META-INF/LICENSE'
-            exclude 'META-INF/LICENSE.txt'
-            exclude 'META-INF/NOTICE.txt'
-        }
 
 }
 

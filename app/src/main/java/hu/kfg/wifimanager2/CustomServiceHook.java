@@ -1,4 +1,4 @@
-package hu.kfg.wifimanager;
+package hu.kfg.wifimanager2;
 
 import com.android.server.XAService;
 import de.robv.android.xposed.*;

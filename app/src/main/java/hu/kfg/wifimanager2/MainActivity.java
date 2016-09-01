@@ -1,4 +1,4 @@
-package hu.kfg.wifimanager;
+package hu.kfg.wifimanager2;
 
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -52,7 +52,7 @@ public class MainActivity extends PreferenceActivity {
 			mWifiManager.startScan();
 		}
 	
-    	final SharedPreferences settings = getSharedPreferences("hu.kfg.wifimanager_preferences", MODE_PRIVATE);
+    	final SharedPreferences settings = getSharedPreferences("hu.kfg.wifimanager2_preferences", MODE_PRIVATE);
         
         final SharedPreferences.Editor prefEditorr = settings.edit();
 			prefEditorr.putString("password","");
