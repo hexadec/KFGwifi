@@ -122,8 +122,25 @@ public class KFGreceiver extends BroadcastReceiver {
 										for (String macAddress1 : macAddress) {
 											if (macAddress1.equals(wifiInfo.getBSSID())||macAddress1.toLowerCase().equals(wifiInfo.getBSSID())) match = true;
 										}
+										if (Build.VERSION.SDK_INT>=21) {
+											if (!(wifiInfo.getFrequency()<2600)) {
+												firstConnect = true;
+												numberOfSessions = 0;
+												numOfTries = 0;
+												if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")) {
+													Log.d(TAG, "Different wifi with the name \"kfg\"! -- FREQ");
+													showSuccessToast.postAtFrontOfQueue(new Runnable() {
+														@Override
+														public void run() {
+															Toast.makeText(context, context.getString(R.string.not_real_kfg), Toast.LENGTH_SHORT).show();
+														}
+													});
+												}
+												return;
+											}
+										}
 										if (!match){ 
-											Log.d(TAG,"Different wifi with the name \"kfg\"  MAC! -- "+wifiInfo.getBSSID());
+											Log.d(TAG,"Different wifi with the name \"kfg\"! -- MAC -- "+wifiInfo.getBSSID());
 											showSuccessToast.postAtFrontOfQueue(new Runnable() {
 													@Override
 													public void run () {
