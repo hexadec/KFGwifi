@@ -8,8 +8,8 @@ android {
         applicationId "hu.kfg.wifimanager2"
         minSdkVersion 11
         targetSdkVersion 21
-        versionCode 34
-        versionName "0.33.8"
+        versionCode 35
+        versionName "0.34-build1"
     }
         useLibrary 'org.apache.http.legacy'
 

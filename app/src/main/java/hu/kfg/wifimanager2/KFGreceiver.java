@@ -85,7 +85,6 @@ public class KFGreceiver extends BroadcastReceiver {
 							Log.d(TAG,"Autologin-thread started... " + ++numberOfSessions);
 							WifiManager mWifi =  ((WifiManager) context.getSystemService(Context.WIFI_SERVICE));
 							if (mWifi.getConnectionInfo()!=null) {
-								runTimes = 0;
 								
 		   						WifiInfo wifiInfo = mWifi.getConnectionInfo();
 	           						String ssid = wifiInfo.getSSID();
@@ -172,12 +171,24 @@ public class KFGreceiver extends BroadcastReceiver {
 										}
 	            	
 	            					} else {
+										if (ssid.equals("<unknown ssid>")) {
+											numOfTries++;
+											SystemClock.sleep(4000);
+											Log.d(TAG,"Retry now...");
+											numOfTries = 0;
+											onReceive(context,intent);
+											return;
+										}
 										if (!ssid.equals("\"kfg\"")){
 											firstConnect = true;
 											numberOfSessions = 0;
+											numOfTries = 0;
 											Log.d(TAG,"Different Wi-Fi name");
 						
 										} else {
+											firstConnect = true;
+											numberOfSessions = 0;
+											numOfTries = 0;
 											if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")) {
 												Log.d(TAG, "Different wifi with the name \"kfg\"!");
 												showSuccessToast.postAtFrontOfQueue(new Runnable() {
@@ -198,7 +209,7 @@ public class KFGreceiver extends BroadcastReceiver {
 							if (++runTimes==3){
 								return;
 							}
-							if (++numOfTries==1){
+							if (++numOfTries<=3){
 								SystemClock.sleep(4000);
 								Log.d(TAG,"Retry now...");
 								numOfTries = 0;
@@ -251,8 +262,8 @@ public boolean connect(final String password,final String username,final Context
 	}
 	String kfgserver = "http://wifi-gw.karinthy.hu/";
 	final HttpParams httpParams = new BasicHttpParams();
-    HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
-	HttpConnectionParams.setSoTimeout(httpParams, 5000);
+    HttpConnectionParams.setConnectionTimeout(httpParams, 8000);
+	HttpConnectionParams.setSoTimeout(httpParams, 8000);
 	
     HttpResponse response;
     HttpClient client = new DefaultHttpClient(httpParams);
@@ -385,7 +396,7 @@ public static void notifyIfFailed(int state,Context context){
         .setSmallIcon(R.drawable.ic_launcher)
         //.setContentIntent(pIntent)
         .setAutoCancel(true)
-	  .setVibrate(new long[]{0,80,100,80})
+	  .setVibrate(new long[]{0,50,110,50})
 	  .setOnlyAlertOnce(true);
 
 	   
