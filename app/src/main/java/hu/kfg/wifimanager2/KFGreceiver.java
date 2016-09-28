@@ -83,6 +83,7 @@ public class KFGreceiver extends BroadcastReceiver {
 						@Override
 						public void run() {
 							Log.d(TAG,"Autologin-thread started... " + ++numberOfSessions);
+							SystemClock.sleep(1000);
 							WifiManager mWifi =  ((WifiManager) context.getSystemService(Context.WIFI_SERVICE));
 							if (mWifi.getConnectionInfo()!=null) {
 								
