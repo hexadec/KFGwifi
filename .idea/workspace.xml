@@ -8,11 +8,12 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" line="94" mnemonic="7" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb0b520f-bf4a-44ee-b9b0-39fab0037243" name="Default" comment="code updates">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/api_82.xml" afterPath="" />
+    <list default="true" id="cb0b520f-bf4a-44ee-b9b0-39fab0037243" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" />
     </list>
     <ignored path="KFGwifi.iws" />
@@ -44,18 +45,8 @@
       <file leaf-file-name="arrays.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-2.1290324">
               <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13496932">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -71,11 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KFGreceiver.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KFGreceiver.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="6.8496933">
+              <caret line="446" column="67" selection-start-line="446" selection-start-column="67" selection-end-line="446" selection-end-column="67" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+              <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -1642,8 +1643,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager/KFGreceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager/MainActivity.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" />
       </list>
     </option>
   </component>
@@ -2486,7 +2487,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471610268886</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="code updates">
+      <created>1475072984772</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1475072984772</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2804,14 +2811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2843,6 +2842,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.1290324">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2851,18 +2858,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="10" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13496932">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        <state vertical-scroll-proportion="6.8496933">
+          <caret line="446" column="67" selection-start-line="446" selection-start-column="67" selection-end-line="446" selection-end-column="67" />
           <folding />
         </state>
       </provider>

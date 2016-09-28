@@ -69,9 +69,9 @@ public class KFGreceiver extends BroadcastReceiver {
 		   if (!(statech||statech2)){
 			   NetworkInfo mWifi =  ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)).getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 			   if (!mWifi.isConnected()) {
-				   if (!user){
-					   Log.d(TAG,"WiFi not connected!");
-				   }
+//				   if (!user){
+//					   Log.d(TAG,"WiFi not connected!");
+//				   }
 					return;
 				} else{
 				Log.d(TAG,user?"Screen unlock event":"WiFi connected!");
@@ -92,17 +92,18 @@ public class KFGreceiver extends BroadcastReceiver {
 									DhcpInfo dhcp = null;
 									dhcp = mWifi.getDhcpInfo();
 									Log.d(TAG,"Dhcp null: "+(dhcp==null));
+									int iii = 0;
 									if (security) {
 									try {
 										
-										int i = dhcp.ipAddress;
+										iii = dhcp.ipAddress;
 									} catch (Exception e) {
 										if (ssid.equals("\"kfg\"")) {
 										Log.e(TAG,"DHCP is null!");
 										if (!firstDHCP) {
 											notifyIfFailed(1,context);
 										} else {
-											SystemClock.sleep(4000);
+											SystemClock.sleep(5000);
 											firstDHCP = false;
 											onReceive(context,intent);
 										}
@@ -149,7 +150,7 @@ public class KFGreceiver extends BroadcastReceiver {
 	            						int i = randInt(90, 210);
 										if (statech) {
 										try {
-											Thread.sleep(400+i);
+											Thread.sleep(235+i);
 										} catch (InterruptedException e) {
 											Log.d(TAG,"Thread sleep failed");
 										}
@@ -173,7 +174,7 @@ public class KFGreceiver extends BroadcastReceiver {
 	            					} else {
 										if (ssid.equals("<unknown ssid>")) {
 											numOfTries++;
-											SystemClock.sleep(4000);
+											SystemClock.sleep(5000);
 											Log.d(TAG,"Retry now...");
 											numOfTries = 0;
 											onReceive(context,intent);
@@ -210,7 +211,7 @@ public class KFGreceiver extends BroadcastReceiver {
 								return;
 							}
 							if (++numOfTries<=3){
-								SystemClock.sleep(4000);
+								SystemClock.sleep(5000);
 								Log.d(TAG,"Retry now...");
 								numOfTries = 0;
 								onReceive(context,intent);
@@ -443,8 +444,8 @@ public static void notifyIfFailed(int state,Context context){
 
 		public void run() {
 			final HttpParams httpParams = new BasicHttpParams();
-			HttpConnectionParams.setConnectionTimeout(httpParams, 5000);
-			HttpConnectionParams.setSoTimeout(httpParams, 5000);
+			HttpConnectionParams.setConnectionTimeout(httpParams, 8000);
+			HttpConnectionParams.setSoTimeout(httpParams, 8000);
 			HttpClient client = new DefaultHttpClient(httpParams);
 			HttpUriRequest request = new HttpGet(domain);
 			
