@@ -9,7 +9,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 21
         versionCode 35
-        versionName "0.34-build1"
+        versionName "0.34-build2"
     }
         useLibrary 'org.apache.http.legacy'
 

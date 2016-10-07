@@ -23,10 +23,10 @@
     <string name="change_password">Jelszó módosítása</string>
     <string name="login_manually">Kézi belépés</string>
     <string name="kfgwifi_error">KFGwifi Hiba</string>
-    <string name="login_failed">Belépési hiba!</string>
+    <string name="login_failed">Belépés sikertelen!</string>
     <string name="login_prob_successful">A belépés valszínűleg sikeres volt, de valami váratlan történt</string>
     <string name="wrong_username_password">Rossz felhasználónév vagy jelszó!</string>
-    <string name="enter_username_password"><![CDATA[KFGwifi: Kérlek írd be a felhasználóneved és a jelszavad a menüben]]></string>
+    <string name="enter_username_password"><![CDATA[KFGwifi: Írd be a felhasználóneved és a jelszavad a menüben]]></string>
     <string name="not_real_kfg">Kapcsolódtál egy \"kfg\" nevű wifihez, de ez nem az igazi! Itt ne lépj be!</string>
     <string name="cannot_reach_login">Nem érhető el a belépési oldal!</string>
     <string name="attention">Figyelem!</string>

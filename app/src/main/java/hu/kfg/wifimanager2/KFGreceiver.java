@@ -102,7 +102,7 @@ public class KFGreceiver extends BroadcastReceiver {
 										if (ssid.equals("\"kfg\"")) {
 										Log.e(TAG,"DHCP is null!");
 										if (!firstDHCP) {
-											notifyIfFailed(1,context);
+											notifyIfFailed(1,context,12);
 										} else {
 											SystemClock.sleep(5000);
 											firstDHCP = false;
@@ -163,7 +163,7 @@ public class KFGreceiver extends BroadcastReceiver {
 											txt = new EncryptUtils().cryptThreedog(new EncryptUtils().base64decode(password2),true,username);
 										} catch (Exception e){
 											Log.e(TAG,"Decryption failed");
-											notifyIfFailed(1,context);
+											notifyIfFailed(1,context,11);
 										}
 	            						int i = randInt(90, 210);
 										if (statech) {
@@ -275,7 +275,7 @@ public boolean connect(final String password,final String username,final Context
 		WifiManager manager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 		WifiInfo wifiInfo = manager.getConnectionInfo();
 		if (wifiInfo!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
-			notifyIfFailed(2, context);
+			notifyIfFailed(2, context,20);
 		}
 		return false;
 	}
@@ -303,7 +303,7 @@ public boolean connect(final String password,final String username,final Context
 		response = client.execute(post,hcon);
 	} catch (Exception e1) {
 		
-		notifyIfFailed(2,context);
+		notifyIfFailed(2,context,21);
 		Log.e(TAG,"Cannot execute the POST request");
 		e1.printStackTrace();
 		return false;
@@ -317,7 +317,7 @@ public boolean connect(final String password,final String username,final Context
 		//Let's check, whether the username/password was correct
 		if (req.getURI().toASCIIString().equals("/")){
 			//Wasn't, notifying user
-			notifyIfFailed(3,context);
+			notifyIfFailed(3,context,30);
 			return false;
 		} else {
 			//Saving last login time and notifying other kfg apps
@@ -342,13 +342,13 @@ public boolean connect(final String password,final String username,final Context
 	} else if (response.getStatusLine().getStatusCode()%200>=100) {
 		//Did NOT receive 2xx response, something unexpected happened
 		Log.d(TAG, "Login form get: " + response.getStatusLine());
-		notifyIfFailed(1,context);
+		notifyIfFailed(1,context,10);
 		return false;
 	} else {
 		//Received 2xx, so the login was probably successful,
 		//but we are not sure, the username/password can be incorrect
 		Log.d(TAG, "Login form get: " + response.getStatusLine());
-		notifyIfFailed(4,context);
+		notifyIfFailed(4,context,40);
 		return true;
 		
 	}
@@ -403,7 +403,7 @@ public static boolean is204PageAvailable(int timeout) {
 	}
 	
 
-public static void notifyIfFailed(int state,Context context){
+public static void notifyIfFailed(int state,Context context,int errorCode){
 	Intent intent = new Intent(context, MainActivity.class);
 	Intent eintent = new Intent(Intent.ACTION_VIEW);
 	eintent.setData(Uri.parse("http://wifi-gw.karinthy.hu/"));
@@ -411,7 +411,7 @@ public static void notifyIfFailed(int state,Context context){
 	PendingIntent epIntent = PendingIntent.getActivity(context, 0, eintent, 0);
 	Notification.Builder n  = new Notification.Builder(context);
         n.setContentTitle(context.getString(R.string.kfgwifi_error))
-        .setContentText(state==1?context.getString(R.string.login_failed):state==2?context.getString(R.string.cannot_reach_login):state==3?context.getString(R.string.wrong_username_password):context.getString(R.string.login_prob_successful))
+        .setContentText((state==1?context.getString(R.string.login_failed):state==2?context.getString(R.string.cannot_reach_login):state==3?context.getString(R.string.wrong_username_password):context.getString(R.string.login_prob_successful))+" ("+errorCode+")")
         .setSmallIcon(R.drawable.ic_launcher)
         //.setContentIntent(pIntent)
         .setAutoCancel(true)
