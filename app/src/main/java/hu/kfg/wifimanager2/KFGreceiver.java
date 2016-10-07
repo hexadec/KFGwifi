@@ -303,7 +303,7 @@ public boolean connect(final String password,final String username,final Context
 		response = client.execute(post,hcon);
 	} catch (Exception e1) {
 		
-		notifyIfFailed(1,context);
+		notifyIfFailed(2,context);
 		Log.e(TAG,"Cannot execute the POST request");
 		e1.printStackTrace();
 		return false;
