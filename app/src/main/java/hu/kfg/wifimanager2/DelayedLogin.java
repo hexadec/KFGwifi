@@ -108,9 +108,9 @@ public class DelayedLogin extends BroadcastReceiver {
             Log.e(TAG,"Decryption failed");
             KFGreceiver.notifyIfFailed(1,context,11);
         }
-        int i = KFGreceiver.randInt(40, 180);
+        int i = KFGreceiver.randInt(90, 180);
             try {
-                Thread.sleep(135+i);
+                Thread.sleep(67+i);
             } catch (InterruptedException e) {
                 Log.d(TAG,"Thread sleep failed");
             }
@@ -119,6 +119,17 @@ public class DelayedLogin extends BroadcastReceiver {
             case 1:
                 break;
             case 0:
+                if (timeout) {
+                    Log.d(TAG,"Starting TimeoutKiller...");
+                    AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+                    Intent intente = new Intent(context, TimeoutKiller.class);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intente, PendingIntent.FLAG_UPDATE_CURRENT);
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
+                    } else {
+                        alarmManager.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
+                    }
+                }
                 break;
             case -10:
             case -11:
@@ -163,6 +174,7 @@ public class DelayedLogin extends BroadcastReceiver {
 
             for (Network net : cm.getAllNetworks()) {
                 if (cm.getNetworkInfo(net).getType() == ConnectivityManager.TYPE_WIFI) {
+                    if (Build.VERSION.SDK_INT>=23) Log.d(TAG, "Def. Network Changed -- API23: "+ cm.bindProcessToNetwork(net));
                     Log.d(TAG, "Def. Network Changed: "+ ConnectivityManager.setProcessDefaultNetwork(net));
                 }
             }

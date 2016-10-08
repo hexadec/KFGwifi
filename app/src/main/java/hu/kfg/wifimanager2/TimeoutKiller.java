@@ -73,6 +73,7 @@ public class TimeoutKiller extends BroadcastReceiver
 		 final ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		 for (Network net : cm.getAllNetworks()) {
 			 if (cm.getNetworkInfo(net).getType() == ConnectivityManager.TYPE_WIFI) {
+				 if (Build.VERSION.SDK_INT>=23) cm.bindProcessToNetwork(net);
 				 ConnectivityManager.setProcessDefaultNetwork(net);
 			 }
 		 }
@@ -97,7 +98,6 @@ public class TimeoutKiller extends BroadcastReceiver
 			e.printStackTrace();
 			
 		}
-		entity = null;
 	    String yourServer = "http://www.google.com/";
 	 	HttpPost post = new HttpPost(yourServer);
 
@@ -113,14 +113,14 @@ public class TimeoutKiller extends BroadcastReceiver
 	    try {
 	        response = client.execute(post);
 	    } catch (Exception e1) {
-			Log.d(TAG,"Cannot execute the POST request");
+			Log.v(TAG,"Cannot execute the POST request");
 	        e1.printStackTrace();
 	    } 
 		try {
 	    entity = response.getEntity();
-		 Log.d(TAG,response.getStatusLine().toString());
+		 Log.v(TAG,response.getStatusLine().toString());
 		} catch (Exception err){
-			Log.d(TAG,"Response error!");
+			Log.v(TAG,"Response error!");
 			err.printStackTrace();
 		 
 		}

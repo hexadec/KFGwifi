@@ -162,34 +162,30 @@ public class KFGreceiver extends BroadcastReceiver {
 											Log.e(TAG,"Decryption failed");
 											notifyIfFailed(1,context,-15);
 										}
-	            						int i = randInt(90, 210);
+	            						int i = randInt(90, 180);
 										if (statech) {
 										try {
-											Thread.sleep(135+i);
+											Thread.sleep(65+i);
 										} catch (InterruptedException e) {
 											Log.d(TAG,"Thread sleep failed");
 										}
 										}
 										int connect = DelayedLogin.connect(txt,username,context,intent);
-	            						if (connect==0&&timeout)  {
-											Log.d(TAG,"Starting TimeoutKiller...");
-	            							AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-	            							Intent intente = new Intent(context, TimeoutKiller.class);
-	            							PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intente, PendingIntent.FLAG_UPDATE_CURRENT);
-											if (Build.VERSION.SDK_INT >= 19) {
-												alarmManager.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
-											} else {
-												alarmManager.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
-											}
-	            							//alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,System.currentTimeMillis(),i*1000,pendingIntent);
-						
-	            						} else {
-											Log.d(TAG,"Not starting TimeoutKiller");
-										}
 										switch (connect) {
 											case 1:
 												break;
 											case 0:
+												if (timeout) {
+													Log.d(TAG,"Starting TimeoutKiller...");
+													AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+													Intent intente = new Intent(context, TimeoutKiller.class);
+													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intente, PendingIntent.FLAG_UPDATE_CURRENT);
+													if (Build.VERSION.SDK_INT >= 19) {
+														alarmManager.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
+													} else {
+														alarmManager.set(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
+													}
+												}
 												break;
 											case -10:
 											case -11:
