@@ -126,7 +126,7 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 				   }
 			   }
 		   });
-		   //Tell NetworkAgentInfo this network is has no restrictions
+		   //Tell NetworkAgentInfo this network has no restrictions
 		   XposedHelpers.findAndHookMethod("android.net.NetworkCapabilities", lpparam.classLoader,"hasCapability", "int",new XC_MethodHook() {
 			   @Override
 			   protected void afterHookedMethod(MethodHookParam param) throws Throwable {

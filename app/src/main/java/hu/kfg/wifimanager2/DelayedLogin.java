@@ -45,6 +45,13 @@ public class DelayedLogin extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context,final Intent intent) {
+        //Cancel all other alarms
+        AlarmManager alarmManager1 = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent1 = new Intent(context, DelayedLogin.class);
+        PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 10, intent1, 0);
+        alarmManager1.cancel(pendingIntent1);
+
+
         WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         String ssid = wifiInfo.getSSID();
@@ -52,9 +59,10 @@ public class DelayedLogin extends BroadcastReceiver {
                 .getDefaultSharedPreferences(context);
         final boolean autologin = pref.getBoolean("autologin", false);
         final boolean security = pref.getBoolean("security", true);
-        if (!(autologin&&ssid.equals("\"kfg\"")&&KFGreceiver.isRealKfgWifi(wifiManager.getDhcpInfo()))) {
+        if (!(autologin&&ssid.equals("\"kfg\"")&&(!security||KFGreceiver.isRealKfgWifi(wifiManager.getDhcpInfo())))) {
             return;
         }
+        Log.d(TAG,"DelayedLogin started...");
         if (security) {
             String[] macAddress = context.getResources().getStringArray(R.array.macAddresses);
             boolean match = false;
@@ -122,11 +130,11 @@ public class DelayedLogin extends BroadcastReceiver {
                     AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
                     Intent intente = new Intent(context, DelayedLogin.class);
                     intente.putExtra("runtimes", intent.getIntExtra("runtimes", 0)+1);
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, 0);
+                    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, PendingIntent.FLAG_CANCEL_CURRENT);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?2:0) * 1000), pendingIntent);
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
                     } else {
-                        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?2:0) * 1000), pendingIntent);
+                        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
                     }
                 } else {
                     KFGreceiver.notifyIfFailed(connect>-20?1:2,context,connect);
