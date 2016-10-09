@@ -13,9 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb0b520f-bf4a-44ee-b9b0-39fab0037243" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/api_82.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java" afterPath="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java" />
     </list>
     <ignored path="KFGwifi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +53,8 @@
       <file leaf-file-name="arrays.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="19" column="0" selection-start-line="14" selection-start-column="14" selection-end-line="19" selection-end-column="0" />
+            <state relative-caret-position="220">
+              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -73,59 +75,28 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
               <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
-              <folding>
-                <element signature="e#2940#9363#0" expanded="false" />
-                <element signature="e#4887#5101#0" expanded="false" />
-                <element signature="e#5001#5041#0" expanded="false" />
-                <element signature="e#5100#5101#0" expanded="false" />
-                <element signature="e#5328#5536#0" expanded="false" />
-                <element signature="e#5439#5479#0" expanded="false" />
-                <element signature="e#5535#5536#0" expanded="false" />
-                <element signature="e#5862#5913#0" expanded="false" />
-                <element signature="e#8725#8934#0" expanded="false" />
-                <element signature="e#8836#8876#0" expanded="false" />
-                <element signature="e#8933#8934#0" expanded="false" />
-                <element signature="e#9362#9363#0" expanded="false" />
-                <element signature="e#10882#10923#0" expanded="false" />
-                <element signature="e#10959#10999#0" expanded="false" />
-                <element signature="e#11009#11055#0" expanded="false" />
-                <element signature="e#11065#11116#0" expanded="false" />
-                <element signature="e#11117#11166#0" expanded="false" />
-                <element signature="e#11770#11813#0" expanded="false" />
-                <element signature="e#11872#11914#0" expanded="false" />
-                <element signature="e#12105#12154#0" expanded="false" />
-                <element signature="e#13114#13115#0" expanded="false" />
-                <element signature="e#13147#13148#0" expanded="false" />
-                <element signature="e#13190#13191#0" expanded="false" />
-                <element signature="e#13214#13215#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DelayedLogin.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DelayedLogin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/DelayedLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2783">
-              <caret line="112" column="31" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
+            <state relative-caret-position="-1574">
+              <caret line="123" column="46" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3289#3573#0" expanded="true" />
-                <element signature="e#3448#3488#0" expanded="true" />
-                <element signature="e#3572#3573#0" expanded="true" />
-                <element signature="e#3981#4021#0" expanded="true" />
-                <element signature="e#4355#4406#0" expanded="true" />
-                <element signature="e#9659#9674#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,7 +105,7 @@
       <file leaf-file-name="TimeoutKiller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/TimeoutKiller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1727">
+            <state relative-caret-position="1524">
               <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
               <folding />
             </state>
@@ -144,31 +115,18 @@
       <file leaf-file-name="CustomServiceHook.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2112">
-              <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
+            <state relative-caret-position="358">
+              <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values-hu/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="445">
+              <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -1449,7 +1407,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4417935666465" />
-        <entry key="E:\android_apps\KFGwifi" value="4423208871077" />
+        <entry key="E:\android_apps\KFGwifi" value="4423307375583" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1726,12 +1684,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-hu/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/prefs.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/TimeoutKiller.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/DelayedLogin.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -1767,6 +1725,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1859,8 +1819,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2797,37 +2755,43 @@
       <option name="project" value="LOCAL" />
       <updated>1475988007758</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="code updates &amp; fixes">
+      <created>1475995922340</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1475995922340</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20070423" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20070423" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30363423" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19614148" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20070423" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20070423" sideWeight="0.49785176" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905483" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32905483" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1944146" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329582" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2835,6 +2799,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19614148" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2875,32 +2840,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2940#9363#0" expanded="false" />
-            <element signature="e#4887#5101#0" expanded="false" />
-            <element signature="e#5001#5041#0" expanded="false" />
-            <element signature="e#5100#5101#0" expanded="false" />
-            <element signature="e#5328#5536#0" expanded="false" />
-            <element signature="e#5439#5479#0" expanded="false" />
-            <element signature="e#5535#5536#0" expanded="false" />
-            <element signature="e#5862#5913#0" expanded="false" />
-            <element signature="e#8725#8934#0" expanded="false" />
-            <element signature="e#8836#8876#0" expanded="false" />
-            <element signature="e#8933#8934#0" expanded="false" />
-            <element signature="e#9362#9363#0" expanded="false" />
-            <element signature="e#10882#10923#0" expanded="false" />
-            <element signature="e#10959#10999#0" expanded="false" />
-            <element signature="e#11009#11055#0" expanded="false" />
-            <element signature="e#11065#11116#0" expanded="false" />
-            <element signature="e#11117#11166#0" expanded="false" />
-            <element signature="e#11770#11813#0" expanded="false" />
-            <element signature="e#11872#11914#0" expanded="false" />
-            <element signature="e#12105#12154#0" expanded="false" />
-            <element signature="e#13114#13115#0" expanded="false" />
-            <element signature="e#13147#13148#0" expanded="false" />
-            <element signature="e#13190#13191#0" expanded="false" />
-            <element signature="e#13214#13215#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2924,32 +2864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2940#9363#0" expanded="false" />
-            <element signature="e#4887#5101#0" expanded="false" />
-            <element signature="e#5001#5041#0" expanded="false" />
-            <element signature="e#5100#5101#0" expanded="false" />
-            <element signature="e#5328#5536#0" expanded="false" />
-            <element signature="e#5439#5479#0" expanded="false" />
-            <element signature="e#5535#5536#0" expanded="false" />
-            <element signature="e#5862#5913#0" expanded="false" />
-            <element signature="e#8725#8934#0" expanded="false" />
-            <element signature="e#8836#8876#0" expanded="false" />
-            <element signature="e#8933#8934#0" expanded="false" />
-            <element signature="e#9362#9363#0" expanded="false" />
-            <element signature="e#10882#10923#0" expanded="false" />
-            <element signature="e#10959#10999#0" expanded="false" />
-            <element signature="e#11009#11055#0" expanded="false" />
-            <element signature="e#11065#11116#0" expanded="false" />
-            <element signature="e#11117#11166#0" expanded="false" />
-            <element signature="e#11770#11813#0" expanded="false" />
-            <element signature="e#11872#11914#0" expanded="false" />
-            <element signature="e#12105#12154#0" expanded="false" />
-            <element signature="e#13114#13115#0" expanded="false" />
-            <element signature="e#13147#13148#0" expanded="false" />
-            <element signature="e#13190#13191#0" expanded="false" />
-            <element signature="e#13214#13215#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3041,7 +2956,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="32" column="88" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="88" />
-          <folding />
+          <folding>
+            <element signature="e#1172#1198#0" expanded="true" />
+            <element signature="e#1379#1404#0" expanded="true" />
+            <element signature="e#1574#1593#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3239,27 +3158,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-hu/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="25" column="51" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/hexadecimal/textsecure/EncryptUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3278,38 +3180,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="19" column="0" selection-start-line="14" selection-start-column="14" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/TimeoutKiller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1727">
-          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2112">
-          <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
@@ -3321,52 +3191,69 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-hu/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
-          <folding>
-            <element signature="e#2940#9363#0" expanded="false" />
-            <element signature="e#4887#5101#0" expanded="false" />
-            <element signature="e#5001#5041#0" expanded="false" />
-            <element signature="e#5100#5101#0" expanded="false" />
-            <element signature="e#5328#5536#0" expanded="false" />
-            <element signature="e#5439#5479#0" expanded="false" />
-            <element signature="e#5535#5536#0" expanded="false" />
-            <element signature="e#5862#5913#0" expanded="false" />
-            <element signature="e#8725#8934#0" expanded="false" />
-            <element signature="e#8836#8876#0" expanded="false" />
-            <element signature="e#8933#8934#0" expanded="false" />
-            <element signature="e#9362#9363#0" expanded="false" />
-            <element signature="e#10882#10923#0" expanded="false" />
-            <element signature="e#10959#10999#0" expanded="false" />
-            <element signature="e#11009#11055#0" expanded="false" />
-            <element signature="e#11065#11116#0" expanded="false" />
-            <element signature="e#11117#11166#0" expanded="false" />
-            <element signature="e#11770#11813#0" expanded="false" />
-            <element signature="e#11872#11914#0" expanded="false" />
-            <element signature="e#12105#12154#0" expanded="false" />
-            <element signature="e#13114#13115#0" expanded="false" />
-            <element signature="e#13147#13148#0" expanded="false" />
-            <element signature="e#13190#13191#0" expanded="false" />
-            <element signature="e#13214#13215#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="445">
+          <caret line="30" column="70" selection-start-line="30" selection-start-column="70" selection-end-line="30" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/arrays.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/DelayedLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2783">
-          <caret line="112" column="31" selection-start-line="112" selection-start-column="31" selection-end-line="112" selection-end-column="31" />
+        <state relative-caret-position="-1574">
+          <caret line="123" column="46" selection-start-line="123" selection-start-column="46" selection-end-line="123" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3289#3573#0" expanded="true" />
-            <element signature="e#3448#3488#0" expanded="true" />
-            <element signature="e#3572#3573#0" expanded="true" />
-            <element signature="e#3981#4021#0" expanded="true" />
-            <element signature="e#4355#4406#0" expanded="true" />
-            <element signature="e#9659#9674#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/TimeoutKiller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1524">
+          <caret line="114" column="21" selection-start-line="114" selection-start-column="21" selection-end-line="114" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/CustomServiceHook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="133" column="38" selection-start-line="133" selection-start-column="38" selection-end-line="133" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/hu/kfg/wifimanager2/KFGreceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="113" column="39" selection-start-line="113" selection-start-column="39" selection-end-line="113" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -81,7 +81,7 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 			   @Override
 			   protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 				   WifiManager manager = (WifiManager) AndroidAppHelper.currentApplication().getSystemService(Context.WIFI_SERVICE);
-				   SystemClock.sleep(500);
+				   SystemClock.sleep(200);
 				   if (manager.isWifiEnabled()) {
 					   WifiInfo wifiInfo = manager.getConnectionInfo();
 					   if (wifiInfo!=null&&wifiInfo.getSSID()!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
@@ -95,7 +95,7 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 			   @Override
 			   protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 				   WifiManager manager = (WifiManager) AndroidAppHelper.currentApplication().getSystemService(Context.WIFI_SERVICE);
-				   SystemClock.sleep(500);
+				   SystemClock.sleep(200);
 				   if (manager.isWifiEnabled()) {
 					   WifiInfo wifiInfo = manager.getConnectionInfo();
 					   if (wifiInfo!=null&&wifiInfo.getSSID()!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
@@ -112,7 +112,7 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 			   protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
 				   if (((NetworkInfo)XposedHelpers.getObjectField(param.args[0],"networkInfo")).getType()==ConnectivityManager.TYPE_WIFI) {
 					   WifiManager manager = (WifiManager) AndroidAppHelper.currentApplication().getSystemService(Context.WIFI_SERVICE);
-					   SystemClock.sleep(500);
+					   SystemClock.sleep(200);
 					   if (!manager.isWifiEnabled()) {
 						   return;
 					   }
@@ -131,7 +131,7 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 			   @Override
 			   protected void afterHookedMethod(MethodHookParam param) throws Throwable {
 				   WifiManager manager = (WifiManager) AndroidAppHelper.currentApplication().getSystemService(Context.WIFI_SERVICE);
-				   SystemClock.sleep(500);
+				   SystemClock.sleep(200);
 				   if (manager.isWifiEnabled()) {
 					   WifiInfo wifiInfo = manager.getConnectionInfo();
 					   if (wifiInfo!=null&&wifiInfo.getSSID()!=null&&wifiInfo.getSSID().equals("\"kfg\"")){
