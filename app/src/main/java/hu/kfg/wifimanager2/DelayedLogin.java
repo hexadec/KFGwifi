@@ -110,7 +110,7 @@ public class DelayedLogin extends BroadcastReceiver {
         }
         int i = KFGreceiver.randInt(90, 180);
             try {
-                Thread.sleep(67+i);
+                Thread.sleep(37+i);
             } catch (InterruptedException e) {
                 Log.d(TAG,"Thread sleep failed");
             }

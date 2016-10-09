@@ -165,7 +165,7 @@ public class KFGreceiver extends BroadcastReceiver {
 	            						int i = randInt(90, 180);
 										if (statech) {
 										try {
-											Thread.sleep(65+i);
+											Thread.sleep(49+i);
 										} catch (InterruptedException e) {
 											Log.d(TAG,"Thread sleep failed");
 										}
@@ -179,7 +179,7 @@ public class KFGreceiver extends BroadcastReceiver {
 													Log.d(TAG,"Starting TimeoutKiller...");
 													AlarmManager alarmManager=(AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 													Intent intente = new Intent(context, TimeoutKiller.class);
-													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intente, PendingIntent.FLAG_UPDATE_CURRENT);
+													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intente, 0);
 													if (Build.VERSION.SDK_INT >= 19) {
 														alarmManager.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis()+(i*1000),pendingIntent);
 													} else {
@@ -193,9 +193,10 @@ public class KFGreceiver extends BroadcastReceiver {
 											case -20:
 											case -21:
 											case -22:
+												Log.d(TAG,"Setting alarm for DelayedLogin");
 													AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 													Intent intente = new Intent(context, DelayedLogin.class);
-													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, 0);
+													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, PendingIntent.FLAG_UPDATE_CURRENT);
 													if (Build.VERSION.SDK_INT >= 19) {
 														alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (3 * 1000), pendingIntent);
 													} else {
