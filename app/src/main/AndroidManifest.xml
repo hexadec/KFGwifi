@@ -42,7 +42,11 @@
             android:name="hu.kfg.wifimanager2.TimeoutKiller"
             android:exported="false" >
         </receiver>
-		<meta-data android:value="true" android:name="xposedmodule" android:minSdkVersion="21"/>
+        <receiver
+            android:name="hu.kfg.wifimanager2.DelayedLogin"
+            android:exported="false" >
+        </receiver>
+		<meta-data android:value="true" android:name="xposedmodule" android:minSdkVersion="17"/>
         <meta-data android:value="30" android:name="xposedminversion"/>
         <meta-data android:value="KFGwifi extension, disables captive portal detection (API 17-23+)" android:name="xposeddescription"/>
     </application>

@@ -111,7 +111,7 @@ public class KFGreceiver extends BroadcastReceiver {
 									}
 									}
 								
-									if (ssid.equals("\"kfg\"")&&((!security||isRealKfgWifi(dhcp)))&&(firstConnect||intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")||intent.getAction().equals(Intent.ACTION_USER_PRESENT))) {
+									if (((!security||isRealKfgWifi(dhcp)))&&(firstConnect||intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")||intent.getAction().equals(Intent.ACTION_USER_PRESENT))) {
 										firstConnect = false;
 										if (security) {
 										String[] macAddress = context.getResources().getStringArray(R.array.macAddresses);
