@@ -50,6 +50,8 @@ public class KFGreceiver extends BroadcastReceiver {
 		public void handleMessage(Message msg) {
 		}
 	};
+
+	public KFGreceiver() {}
 	
 	   @Override
 	   public void onReceive(final Context context, final Intent intent) {
@@ -245,6 +247,7 @@ public class KFGreceiver extends BroadcastReceiver {
 							}
 								
 						}
+
 		  
 		  }}).start();
 	      

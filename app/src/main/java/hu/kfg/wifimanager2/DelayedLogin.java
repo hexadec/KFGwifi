@@ -43,6 +43,8 @@ public class DelayedLogin extends BroadcastReceiver {
 
     final String TAG = "KFGDelayedLogin";
 
+    public DelayedLogin() {}
+
     @Override
     public void onReceive(final Context context,final Intent intent) {
         //Cancel all other alarms
