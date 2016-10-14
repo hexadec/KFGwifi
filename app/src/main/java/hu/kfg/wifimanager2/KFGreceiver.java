@@ -198,6 +198,7 @@ public class KFGreceiver extends BroadcastReceiver {
 												Log.d(TAG,"Setting alarm for DelayedLogin");
 													AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 													Intent intente = new Intent(context, DelayedLogin.class);
+													intente.putExtra("forwarded_action",intent.getAction());
 													PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, PendingIntent.FLAG_UPDATE_CURRENT);
 													if (Build.VERSION.SDK_INT >= 19) {
 														alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + (3 * 1000), pendingIntent);

@@ -50,6 +50,7 @@ public class DelayedLogin extends BroadcastReceiver {
         //Cancel all other alarms
         AlarmManager alarmManager1 = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent1 = new Intent(context, DelayedLogin.class);
+        intent1.putExtra("forwarded_action",intent.getStringExtra("forwarded_action"));
         PendingIntent pendingIntent1 = PendingIntent.getBroadcast(context, 10, intent1, 0);
         alarmManager1.cancel(pendingIntent1);
 
@@ -73,7 +74,7 @@ public class DelayedLogin extends BroadcastReceiver {
             }
             if (Build.VERSION.SDK_INT>=21) {
                 if (!(wifiInfo.getFrequency()<2600)) {
-                    if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")) {
+                    if (intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN")) {
                         Log.d(TAG, "Different wifi with the name \"kfg\"! -- FREQ");
                         KFGreceiver.showSuccessToast.postAtFrontOfQueue(new Runnable() {
                             @Override
@@ -142,12 +143,13 @@ public class DelayedLogin extends BroadcastReceiver {
                 if (intent.getIntExtra("runtimes", 1)<5) {
                     AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
                     Intent intente = new Intent(context, DelayedLogin.class);
+                    intente.putExtra("forwarded_action",intent.getStringExtra("forwarded_action"));
                     intente.putExtra("runtimes", intent.getIntExtra("runtimes", 0)+1);
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 10, intente, PendingIntent.FLAG_CANCEL_CURRENT);
                     if (Build.VERSION.SDK_INT >= 19) {
-                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((5+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
                     } else {
-                        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((3+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
+                        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + ((5+intent.getIntExtra("runtimes", 1)>2?3:0) * 1000), pendingIntent);
                     }
                 } else {
                     KFGreceiver.notifyIfFailed(connect>-20?1:2,context,connect);
@@ -185,13 +187,13 @@ public class DelayedLogin extends BroadcastReceiver {
                 .getDefaultSharedPreferences(context);
 
         long time = pref.getLong("time",System.currentTimeMillis()-600000);
-        if ((System.currentTimeMillis()-time<200000)&&(!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))){
+        if ((System.currentTimeMillis()-time<200000)&&(!intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN"))){
             //No need to log in again
             Log.d(TAG,"Last login was within 200s");
             new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
             return 1;
         }
-        if ((!intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN"))&&KFGreceiver.is204PageAvailable(3000)){
+        if ((!intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN"))&&KFGreceiver.is204PageAvailable(3000)){
             //No need to log in again
             Log.d(TAG,"Google 204 checkpage available");
             new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
@@ -242,7 +244,7 @@ public class DelayedLogin extends BroadcastReceiver {
             } else {
                 //Saving last login time and notifying other kfg apps
                 pref.edit().putLong("time",System.currentTimeMillis()).commit();
-                if (intent.getAction().equals("hu.kfg.wifimanager.MANUAL_LOGIN")){
+                if (intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN")){
                     KFGreceiver.showSuccessToast.postAtFrontOfQueue(new Runnable() {
                         @Override
                         public void run () {
