@@ -25,6 +25,7 @@
     <string name="login_manually">Login manually</string>
     <string name="kfgwifi_error">KFGwifi Error</string>
     <string name="login_failed">Login failed!</string>
+    <string name="login_successful">Login successful!</string>
     <string name="cannot_reach_login">Cannot reach login site!</string>
     <string name="wrong_username_password">Wrong username or password!</string>
     <string name="login_prob_successful">The login was probably successful, but something unexpected happened</string>
@@ -42,5 +43,7 @@
     <string name="enter_username_first">Enter username first!</string>
     <string name="password_changed">Password changed!</string>
     <string name="enter_username">Enter username</string>
+    <string name="login_takes_much_time">The third login attempt was unsuccessful, but don\'t worry, we\'ll try it two more times :)</string>
+    <string name="wifi_not_available">The WiFi service is currently not available, please try again later! :(</string>
 
 </resources>

@@ -17,6 +17,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -33,6 +34,8 @@ import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
@@ -160,7 +163,9 @@ public class DelayedLogin extends BroadcastReceiver {
             case -31:
                 break;
             case -40:
+                break;
             case -41:
+                KFGreceiver.notifyIfFailed(5,context,connect);
                 break;
             default:
                 break;
@@ -199,14 +204,14 @@ public class DelayedLogin extends BroadcastReceiver {
             new TimeoutKiller().connect("Karinthy%20Frigyes%20Gimnázium",context);
             return 1;
         }
-        if (!KFGreceiver.isLoginPageAvailable(8000)){
+        if (!KFGreceiver.isLoginPageAvailable(6000)){
             Log.e(TAG,"Cannot reach captive portal! (DNS)");
             return -20;
         }
         String kfgserver = "http://wifi-gw.karinthy.hu/";
         final HttpParams httpParams = new BasicHttpParams();
-        HttpConnectionParams.setConnectionTimeout(httpParams, 8000);
-        HttpConnectionParams.setSoTimeout(httpParams, 8000);
+        HttpConnectionParams.setConnectionTimeout(httpParams, 6000);
+        HttpConnectionParams.setSoTimeout(httpParams, 6000);
 
         HttpResponse response;
         HttpClient client = new DefaultHttpClient(httpParams);
@@ -230,6 +235,25 @@ public class DelayedLogin extends BroadcastReceiver {
             e1.printStackTrace();
             return -21;
         }
+        boolean isbad = false;
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            String s;
+            StringBuilder b = new StringBuilder();
+            while ((s = reader.readLine()) != null) {
+                b.append(s);
+            }
+            s = b.toString();
+            if (s.contains("The WIFI service is currently not available") || s.contains("not available")) {
+                throw new IllegalAccessException("WIFI not available");
+            }
+        } catch (IllegalAccessException illegale) {
+            Log.e(TAG,"WIFI service is not available");
+            return -41;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
         if (response.getStatusLine().getStatusCode()==200){
             //Received 200, everything is OK
@@ -240,6 +264,14 @@ public class DelayedLogin extends BroadcastReceiver {
             if (req.getURI().toASCIIString().equals("/")){
                 //Wasn't, notifying user
                 KFGreceiver.notifyIfFailed(3,context,30);
+                if (intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN")){
+                    KFGreceiver.showSuccessToast.postAtFrontOfQueue(new Runnable() {
+                        @Override
+                        public void run () {
+                            Toast.makeText(context,R.string.wrong_username_password,Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
                 return -30;
             } else {
                 //Saving last login time and notifying other kfg apps
@@ -248,14 +280,14 @@ public class DelayedLogin extends BroadcastReceiver {
                     KFGreceiver.showSuccessToast.postAtFrontOfQueue(new Runnable() {
                         @Override
                         public void run () {
-                            Toast.makeText(context,"Login successful!",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context,R.string.login_successful,Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 Intent broadcastintent = new Intent("hu.kfg.wifimanager.LOGGED_IN");
                 context.sendBroadcast(broadcastintent);
                 NotificationManager notificationManager =
-                        (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+                        (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                 notificationManager.cancelAll();
 
             }

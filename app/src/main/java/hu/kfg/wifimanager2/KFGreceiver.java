@@ -172,7 +172,7 @@ public class KFGreceiver extends BroadcastReceiver {
 											Log.d(TAG,"Thread sleep failed");
 										}
 										}
-										int connect = DelayedLogin.connect(txt,username,context,intent);
+										int connect = DelayedLogin.connect(txt,username,context,intent.putExtra("forwarded_action",intent.getAction()));
 										switch (connect) {
 											case 1:
 												break;
@@ -211,7 +211,9 @@ public class KFGreceiver extends BroadcastReceiver {
 											case -31:
 												break;
 											case -40:
+												break;
 											case -41:
+												notifyIfFailed(5,context,connect);
 												break;
 											default:
 												break;
@@ -311,9 +313,31 @@ public static void notifyIfFailed(int state,Context context,int errorCode){
 	PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
 	PendingIntent epIntent = PendingIntent.getActivity(context, 0, eintent, 0);
 	Notification.Builder n  = new Notification.Builder(context);
-        n.setContentTitle(context.getString(R.string.kfgwifi_error))
-        .setContentText((state==1?context.getString(R.string.login_failed):state==2?context.getString(R.string.cannot_reach_login):state==3?context.getString(R.string.wrong_username_password):context.getString(R.string.login_prob_successful))+" ("+errorCode+")")
-        .setSmallIcon(R.drawable.ic_launcher)
+        n.setContentTitle(context.getString(R.string.kfgwifi_error));
+	String content = "";
+	switch (state) {
+		case 1:
+			content = context.getString(R.string.login_failed);
+			break;
+		case 2:
+			content = context.getString(R.string.cannot_reach_login);
+			break;
+		case 3:
+			content = context.getString(R.string.wrong_username_password);
+			break;
+		case 4:
+			content = context.getString(R.string.login_prob_successful);
+			break;
+		case 5:
+			content = context.getString(R.string.wifi_not_available);
+			break;
+		default:
+			content = context.getString(R.string.login_failed);
+			break;
+	}
+	n.setContentText(content + " ("+errorCode+")");
+        //.setContentText((state==1?context.getString(R.string.login_failed):state==2?context.getString(R.string.cannot_reach_login):state==3?context.getString(R.string.wrong_username_password):context.getString(R.string.login_prob_successful))+" ("+errorCode+")")
+        n.setSmallIcon(R.drawable.ic_launcher)
         //.setContentIntent(pIntent)
         .setAutoCancel(true)
 	  .setVibrate(new long[]{0,50,110,50})
@@ -327,13 +351,13 @@ public static void notifyIfFailed(int state,Context context,int errorCode){
 		(NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 	if (Build.VERSION.SDK_INT<16) {
 		notificationManager.notify(0, n.getNotification());
-	} else if (Build.VERSION.SDK_INT>=16&&state!=4) {
+	} else if (Build.VERSION.SDK_INT>=16&&state!=4&&state!=5) {
 		n.addAction(android.R.drawable.ic_menu_edit, context.getString(R.string.change_password), pIntent);
 		n.addAction(android.R.drawable.ic_menu_more, context.getString(R.string.login_manually), epIntent);
 		notificationManager.notify(0, n.build());
-	} else if (state==4&&Build.VERSION.SDK_INT>=16){
+	} else if ((state==4||state==5)&&Build.VERSION.SDK_INT>=16){
 		Notification notification = new Notification.BigTextStyle(n)
-            .bigText(context.getString(R.string.login_prob_successful)).build();
+            .bigText(state==4?context.getString(R.string.login_prob_successful):context.getString(R.string.wifi_not_available)).build();
 		notificationManager.notify(0,notification); 
 	}
 }

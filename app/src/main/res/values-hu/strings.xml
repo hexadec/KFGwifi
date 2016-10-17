@@ -24,6 +24,7 @@
     <string name="login_manually">Kézi belépés</string>
     <string name="kfgwifi_error">KFGwifi Hiba</string>
     <string name="login_failed">Belépés sikertelen!</string>
+    <string name="login_successful">Sikeres belépés!</string>
     <string name="login_prob_successful">A belépés valszínűleg sikeres volt, de valami váratlan történt</string>
     <string name="wrong_username_password">Rossz felhasználónév vagy jelszó!</string>
     <string name="enter_username_password"><![CDATA[KFGwifi: Írd be a felhasználóneved és a jelszavad a menüben]]></string>
@@ -41,5 +42,7 @@
     <string name="password_changed">A jelszó megváltozott!</string>
     <string name="enter_username_first">Először írd be a felhasználóneved!</string>
     <string name="enter_username">Írd be a felhasználóneved</string>
+    <string name="login_takes_much_time">A harmadik kísérletre sem sikerült belépni, de még kétszer megpróbáljuk :)</string>
+    <string name="wifi_not_available">A WiFi jelenleg nem használható, próbáld újra később! :(</string>
 
 </resources>
