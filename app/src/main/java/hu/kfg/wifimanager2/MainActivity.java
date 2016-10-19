@@ -51,7 +51,7 @@ public class MainActivity extends PreferenceActivity {
 		if (mWifiManager.isWifiEnabled()) {
 			mWifiManager.startScan();
 		}
-	
+
     	final SharedPreferences settings = getSharedPreferences("hu.kfg.wifimanager2_preferences", MODE_PRIVATE);
         
         final SharedPreferences.Editor prefEditorr = settings.edit();
@@ -78,8 +78,6 @@ public class MainActivity extends PreferenceActivity {
     	final EditTextPreference username = (EditTextPreference) un;
     	final EditTextPreference password = (EditTextPreference) pw;
     	final CheckBoxPreference autologin = (CheckBoxPreference) al;
-    	final CheckBoxPreference timeout = (CheckBoxPreference) to;
-		final CheckBoxPreference stamina = (CheckBoxPreference) st;
 		if (settings.getString("b64","").equals("")){
 			password.getEditText().setHint(getString(R.string.no_pwd_yet));
 		} else {
@@ -94,29 +92,17 @@ public class MainActivity extends PreferenceActivity {
 			to.setEnabled(false);
 			ml.setEnabled(false);
 			se.setEnabled(false);
-			//stamina.setChecked(false);
-			//timeout.setChecked(false);
 		}
 		
 		autologin.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener(){
 			public boolean onPreferenceChange(Preference p1, Object o){
-				if (!autologin.isChecked()){
-					un.setEnabled(true);
-					pw.setEnabled(true);
-					st.setEnabled(true);
-					to.setEnabled(true);
-					ml.setEnabled(true);
-					se.setEnabled(true);
-				} else {
-					un.setEnabled(false);
-					pw.setEnabled(false);
-					st.setEnabled(false);
-					to.setEnabled(false);
-					ml.setEnabled(false);
-					se.setEnabled(false);
-					//stamina.setChecked(false);
-					//timeout.setChecked(false);
-				}
+				boolean enable = !autologin.isChecked();
+					un.setEnabled(enable);
+					pw.setEnabled(enable);
+					st.setEnabled(enable);
+					to.setEnabled(enable);
+					ml.setEnabled(enable);
+					se.setEnabled(enable);
 				return true;
 			}
 		});

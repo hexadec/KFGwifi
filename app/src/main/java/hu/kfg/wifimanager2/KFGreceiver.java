@@ -161,8 +161,10 @@ public class KFGreceiver extends BroadcastReceiver {
 										try{
 											txt = new EncryptUtils().cryptThreedog(new EncryptUtils().base64decode(password2),true,username);
 										} catch (Exception e){
+											e.printStackTrace();
 											Log.e(TAG,"Decryption failed");
 											notifyIfFailed(1,context,-15);
+											return;
 										}
 	            						int i = randInt(90, 180);
 										if (statech) {

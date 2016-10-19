@@ -1,6 +1,5 @@
 package hu.kfg.wifimanager2;
 
-import com.android.server.XAService;
 import de.robv.android.xposed.*;
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
@@ -64,14 +63,14 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 		   });
 
 
-	   } else if (Build.VERSION.SDK_INT<23&&Build.VERSION.SDK_INT>=21) {
+	   /*} else if (Build.VERSION.SDK_INT<23&&Build.VERSION.SDK_INT>=21) {
 		   Log.d("CustomServiceHook"," API 21-22 mode");
 		   if (!lpparam.packageName.equals("android")) {
 			   return;
 		   }
 		   XposedBridge.log("injecting now");
 		   XAService.inject(lpparam.classLoader.loadClass("com.android.server.am.ActivityManagerService"));
-	   } else {
+	   */} else {
 		   if (!lpparam.packageName.equals("android")) {
 			   return;
 		   }

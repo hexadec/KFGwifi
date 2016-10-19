@@ -112,14 +112,13 @@ public class DelayedLogin extends BroadcastReceiver {
             txt = new EncryptUtils().cryptThreedog(new EncryptUtils().base64decode(password2),true,username);
         } catch (Exception e){
             Log.e(TAG,"Decryption failed");
-            KFGreceiver.notifyIfFailed(1,context,11);
+            KFGreceiver.notifyIfFailed(1,context,-11);
+            return;
         }
         int i = KFGreceiver.randInt(90, 180);
             try {
                 Thread.sleep(37+i);
-            } catch (InterruptedException e) {
-                Log.d(TAG,"Thread sleep failed");
-            }
+            } catch (InterruptedException e) {}
         int connect = connect(txt,username,context,intent);
         switch (connect) {
             case 1:
@@ -263,7 +262,7 @@ public class DelayedLogin extends BroadcastReceiver {
             //Let's check, whether the username/password was correct
             if (req.getURI().toASCIIString().equals("/")){
                 //Wasn't, notifying user
-                KFGreceiver.notifyIfFailed(3,context,30);
+                KFGreceiver.notifyIfFailed(3,context,-30);
                 if (intent.getStringExtra("forwarded_action").equals("hu.kfg.wifimanager.MANUAL_LOGIN")){
                     KFGreceiver.showSuccessToast.postAtFrontOfQueue(new Runnable() {
                         @Override
@@ -301,7 +300,7 @@ public class DelayedLogin extends BroadcastReceiver {
             //Received 2xx, so the login was probably successful,
             //but we are not sure, the username/password can be incorrect
             Log.d(TAG, "Login form get: " + response.getStatusLine());
-            KFGreceiver.notifyIfFailed(4,context,40);
+            KFGreceiver.notifyIfFailed(4,context,-40);
             return -40;
 
         }
