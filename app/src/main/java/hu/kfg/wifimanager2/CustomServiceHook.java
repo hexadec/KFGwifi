@@ -63,19 +63,12 @@ public class CustomServiceHook implements IXposedHookLoadPackage {
 		   });
 
 
-	   /*} else if (Build.VERSION.SDK_INT<23&&Build.VERSION.SDK_INT>=21) {
-		   Log.d("CustomServiceHook"," API 21-22 mode");
+	   } else {
 		   if (!lpparam.packageName.equals("android")) {
 			   return;
 		   }
-		   XposedBridge.log("injecting now");
-		   XAService.inject(lpparam.classLoader.loadClass("com.android.server.am.ActivityManagerService"));
-	   */} else {
-		   if (!lpparam.packageName.equals("android")) {
-			   return;
-		   }
-		   Log.d("CustomServiceHook"," API 23+ mode");
-		   XposedBridge.log("KFGwifi: API 23+ mode");
+		   Log.d("CustomServiceHook"," API 21+ mode");
+		   XposedBridge.log("KFGwifi: API 21+ mode");
 		   XposedHelpers.findAndHookMethod("com.android.server.connectivity.NetworkMonitor", lpparam.classLoader, "isCaptivePortal", new XC_MethodHook() {
 			   @Override
 			   protected void afterHookedMethod(MethodHookParam param) throws Throwable {
