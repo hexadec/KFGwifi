@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "24.0.1"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         applicationId "hu.kfg.wifimanager2"
         minSdkVersion 11
         targetSdkVersion 21
-        versionCode 36
-        versionName "0.40.6"
+        versionCode 37
+        versionName "0.41-nevertobereleased0"
     }
         useLibrary 'org.apache.http.legacy'
 

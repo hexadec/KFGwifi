@@ -7,6 +7,7 @@ import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.content.*;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.net.wifi.WifiInfo;
@@ -44,8 +45,10 @@ public class MainActivity extends PreferenceActivity {
 		final Preference ol = findPreference("open_login_page");
 		final Preference se = findPreference("security");
 		final Preference co = findPreference("connect");
+		final Preference xp = findPreference("xposed");
+		final PreferenceCategory ma = (PreferenceCategory)findPreference("manual");
 
-		mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		mWifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		registerReceiver(mWifiScanReceiver,
 				new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 		if (mWifiManager.isWifiEnabled()) {
@@ -93,6 +96,9 @@ public class MainActivity extends PreferenceActivity {
 			ml.setEnabled(false);
 			se.setEnabled(false);
 		}
+		if (!settings.getBoolean("has_xposed",false)) {
+			ma.removePreference(xp);
+		}
 		
 		autologin.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener(){
 			public boolean onPreferenceChange(Preference p1, Object o){
@@ -106,6 +112,7 @@ public class MainActivity extends PreferenceActivity {
 				return true;
 			}
 		});
+
 		username.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener(){
 				public boolean onPreferenceChange(Preference p1, Object o){
 					if (o.toString().equals("")){
@@ -116,7 +123,7 @@ public class MainActivity extends PreferenceActivity {
 					if (!pwd.equals("")&&!pwd.equals(null)){
 						final SharedPreferences.Editor prefEditor = settings.edit();
 						
-					if (!username.getText().equals("")&&!username.getText().equals(null)){
+					if (username.getText()!=null&&!username.getText().equals("")){
 						decrypted_password = new EncryptUtils().cryptThreedog(new EncryptUtils().base64decode(pwd),true,username.getText());
 						prefEditor.putString("b64",new EncryptUtils().base64encode(new EncryptUtils().cryptThreedog(decrypted_password,false,o.toString())));
 						//Log.d("KFG",decrypted_password);
@@ -160,7 +167,7 @@ public class MainActivity extends PreferenceActivity {
 						return true;
 					}
 					settings.edit().putLong("manual_login_time",System.currentTimeMillis()).commit();
-					WifiManager manager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+					WifiManager manager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 					if (settings.getString("b64","").equals("")||settings.getString("username","").equals("")){
 						Toast.makeText(getApplicationContext(),R.string.enter_username_password2,Toast.LENGTH_SHORT).show();
 						return true;
@@ -251,7 +258,7 @@ public class MainActivity extends PreferenceActivity {
 	//WIP
 	//Todo do in background
 	static boolean connectTokfg(Context context) {
-		WifiManager wifiManager = (WifiManager)context.getSystemService(WIFI_SERVICE);              
+		WifiManager wifiManager = (WifiManager)context.getApplicationContext().getSystemService(WIFI_SERVICE);
 		int netId = -1;
 		wifiManager.setWifiEnabled(true);
 		SystemClock.sleep(1000);

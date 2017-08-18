@@ -45,5 +45,7 @@
     <string name="enter_username">Enter username</string>
     <string name="login_takes_much_time">The third login attempt was unsuccessful, but don\'t worry, we\'ll try it two more times :)</string>
     <string name="wifi_not_available">The WiFi service is currently not available, please try again later! :(</string>
+    <string name="xposed">Enable Xposed module</string>
+    <string name="xposed_sum">Xposed module automatically removes the exclamation mark and the login message from the statbar, regardless from the login\'s success</string>
 
 </resources>

@@ -44,5 +44,7 @@
     <string name="enter_username">Írd be a felhasználóneved</string>
     <string name="login_takes_much_time">A harmadik kísérletre sem sikerült belépni, de még kétszer megpróbáljuk :)</string>
     <string name="wifi_not_available">A WiFi jelenleg nem használható, próbáld újra később! :(</string>
+    <string name="xposed">Xposed modul engedélyezése</string>
+    <string name="xposed_sum">Az Xposed modul eltávolítja a felkiáltójelet és a bejelentkezés üzenetet, függetlenül attól, hogy sikerült-e belépni</string>
 
 </resources>

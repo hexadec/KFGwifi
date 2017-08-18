@@ -34,7 +34,7 @@
             android:defaultValue="true"
             android:summary="@string/adv_timeout_sum"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/manual">
+    <PreferenceCategory android:title="@string/manual" android:key="manual">
         <Preference
             android:key="manual_login"
             android:title="@string/login_now" />
@@ -44,6 +44,11 @@
         <Preference
             android:key="connect"
             android:title="@string/connect_to_kfg" />
+        <CheckBoxPreference
+            android:key="xposed"
+            android:title="@string/xposed"
+            android:summary="@string/xposed_sum"
+            android:defaultValue="true"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/info">
         <Preference
